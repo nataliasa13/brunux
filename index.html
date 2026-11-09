@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Brunux</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23CDB4FF'/%3E%3Ccircle cx='24' cy='28' r='4' fill='%233A2A22'/%3E%3Ccircle cx='40' cy='28' r='4' fill='%233A2A22'/%3E%3Cellipse cx='32' cy='40' rx='6' ry='5' fill='%233A2A22'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=15">
+</head>
+<body>
+  <div id="view"></div>
+
+  <div id="hud" hidden>
+    <span id="coin-count">🪙 0</span>
+    <span id="gem-count">💎 0</span>
+  </div>
+
+  <p id="hint" hidden></p>
+  <p id="toast" aria-live="polite"></p>
+
+  <button id="mute" class="ghost" type="button" aria-label="Sonido">♪</button>
+  <button id="casa" class="ghost" type="button" hidden>Casa</button>
+  <button id="reset" class="ghost" type="button" hidden>Otra vez</button>
+
+  <section id="home" class="sheet" hidden>
+    <h1>Brunux</h1>
+    <div class="purse" id="purse">
+      <span id="coins">🪙 0</span>
+      <span id="gems">💎 0</span>
+    </div>
+    <div class="home-actions">
+      <button id="dress" type="button">Mi muñeco</button>
+      <button id="shop-open" type="button">La tienda</button>
+    </div>
+    <div id="games"></div>
+  </section>
+
+  <section id="dresser" class="sheet" hidden>
+    <h2>Mi muñeco</h2>
+    <div id="styles" class="styles"></div>
+    <div id="swatches"></div>
+    <button id="dressed" type="button">Listo</button>
+  </section>
+
+  <section id="shop" class="sheet" hidden>
+    <h2>La tienda</h2>
+    <p id="shop-note"></p>
+    <div id="catalog"></div>
+    <button id="shop-close" type="button">Listo</button>
+  </section>
+
+  <section id="win" class="card" hidden>
+    <h2 id="win-title">¡Piscina de bolas!</h2>
+    <p id="win-text"></p>
+    <button id="replay" type="button">Otra vez</button>
+    <button id="win-home" class="quiet" type="button">Casa</button>
+  </section>
+
+  <div id="touch" aria-hidden="true">
+    <div class="pad">
+      <button type="button" data-hold="left" aria-label="Izquierda">◀</button>
+      <div class="nudge">
+        <button type="button" data-hold="forward" aria-label="Adelante">▲</button>
+        <button type="button" data-hold="back" aria-label="Atrás">▼</button>
+      </div>
+      <button type="button" data-hold="right" aria-label="Derecha">▶</button>
+    </div>
+    <button type="button" id="jump" class="jump" aria-label="Saltar">SALTAR</button>
+  </div>
+
+  <script type="module" src="game.js?v=25"></script>
+</body>
+</html>
