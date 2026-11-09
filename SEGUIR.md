@@ -46,6 +46,7 @@ Cada recorrido tiene un truco:
 4. Música de la plaza y una melodía distinta en cada recorrido.
 5. Una bandera en el punto de control y una nubecilla al reaparecer.
 6. Una rueda que gira y empuja, en algún recorrido.
+7. Tres caminos por mundo: Cortito, Normal y Largo. Se eligen en la ficha del arco (la que sale al pisarlo), sin menú extra. El Normal es el recorrido de hoy. El Cortito tiene menos saltos y casi sin trampas; el Largo añade plataformas, cintas y ruedas. Cada camino se puede jugar desde el principio y la insignia del mundo es la misma. Un camino completado deja una estrella en el arco. Empezar por La cuesta: montar Cortito y Largo, probarlo, y solo después hacerlo en los cinco mundos. Sin temporizadores ni avisos que metan prisa.
 
 Empieza por el punto 1 salvo que yo pida otro.
 
