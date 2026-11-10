@@ -590,7 +590,273 @@ const COURSES = [
 ];
 
 const LANE_IDS = ["corto", "normal", "largo"];
-const LANE_NAME = { corto: "Fácil", normal: "Normal", largo: "Difícil" };
+const STR = {
+  es: {
+    dance: "Bailar",
+    home: "Casa",
+    again: "Otra vez",
+    doll: "Mi muñeco",
+    shop: "La tienda",
+    "dress.note": "Toca para cambiar cómo se ve.",
+    done: "Listo",
+    play: "Jugar",
+    notNow: "Ahora no",
+    "board.heading": "Tus insignias",
+    close: "Cerrar",
+    left: "Izquierda",
+    forward: "Adelante",
+    back: "Atrás",
+    right: "Derecha",
+    jump: "SALTAR",
+    "jump.label": "Saltar",
+    "lang.group": "Idioma",
+    "sound.off": "Silenciar",
+    "sound.on": "Activar sonido",
+    "hint.walk": "Camina hacia un portal",
+    "hint.belt": "La cinta empuja",
+    "hint.plank": "La tabla se mueve",
+    "hint.table": "La mesa se mueve",
+    "hint.poof": "¡Se esfuma!",
+    "hint.jump": "Espacio para saltar",
+    "sign.belt": "Cinta",
+    "sign.wheel": "Rueda",
+    "sign.plank": "Tabla",
+    "sign.table": "Mesa",
+    "sign.poof": "Puf",
+    "sign.shop": "Tienda",
+    "sign.doll": "Muñeco",
+    "sign.badges": "Insignias",
+    "lane.corto": "Fácil",
+    "lane.normal": "Normal",
+    "lane.largo": "Difícil",
+    "lane.star": "{name}, con estrella",
+    "mark.on": "★ Insignia",
+    "mark.off": "☆",
+    "board.got": "¡Insignia ganada!",
+    "board.need": "Termina este recorrido para ganarla",
+    "world.fiesta": "La fiesta",
+    "world.cuesta": "La cuesta",
+    "world.puente": "El puente",
+    "world.nubes": "Las nubes",
+    "world.globo": "El globo",
+    "win.fiesta": "¡La tarta!",
+    "win.cuesta": "¡Piscina de bolas!",
+    "win.puente": "¡El cofre!",
+    "win.nubes": "¡La estrella!",
+    "win.globo": "¡El globo!",
+    purse: "Llevas {coins} monedas y {gems} gemas.",
+    "win.fresh": "Insignia nueva. {purse}",
+    "win.star": "Estrella de {lane}. {purse}",
+    "shop.today": "Hoy: {day}. Toca para comprar o poner.",
+    "shop.on": "¡Qué guay! {name} puesto.",
+    "shop.off": "{name} guardado.",
+    "shop.need.gems": "¡Te faltan gemas! 💎",
+    "shop.need.coins": "¡Te faltan monedas! 🪙",
+    "shop.got": "¡Sí! Ya tienes {name}.",
+    "shop.worn": "Puesto",
+    "shop.wear": "Poner",
+    "slot.ropa": "Ropa",
+    "slot.accesorio": "Accesorios",
+    "slot.hat": "Para la cabeza",
+    "slot.trail": "Huellas mágicas",
+    "slot.pet": "Amiguitos",
+    "dress.hair": "Pelo",
+    "dress.curls": "Rizos",
+    "dress.short": "Corto",
+    "dress.cap": "Gorra",
+    "dress.face": "Cara",
+    "dress.smile": "Sonrisa",
+    "dress.open": "Abierta",
+    "dress.tongue": "Lengua",
+    "dress.glasses": "Gafas",
+    "dress.no": "No",
+    "dress.round": "Redondas",
+    "dress.sun": "De sol",
+    "dress.pack": "Mochila",
+    "dress.yes": "Sí",
+    "dress.art": "Dibujo",
+    "dress.plain": "Lisa",
+    "dress.star": "Estrella",
+    "dress.sunart": "Sol",
+    "dress.heart": "Corazón",
+    "dress.skin": "Piel",
+    "dress.shirt": "Camiseta",
+    "dress.pants": "Pantalón",
+    "dress.shoes": "Zapatos",
+    "dress.eyes": "Ojos",
+    "item.cam-roja": "Camiseta roja",
+    "item.cam-azul": "Camiseta azul",
+    "item.cam-verde": "Camiseta verde",
+    "item.cam-lila": "Camiseta lila",
+    "item.cam-amarilla": "Camiseta amarilla",
+    "item.pant-azul": "Pantalón azul",
+    "item.pant-verde": "Pantalón verde",
+    "item.pant-rojo": "Pantalón rojo",
+    "item.zap-amarillos": "Zapatos amarillos",
+    "item.zap-blancos": "Zapatos blancos",
+    "item.zap-rojos": "Zapatos rojos",
+    "item.gafas-redondas": "Gafas redondas",
+    "item.gafas-sol": "Gafas de sol",
+    "item.mochila": "Mochila",
+    "item.dibujo-estrella": "Estrella",
+    "item.dibujo-sol": "Sol",
+    "item.dibujo-corazon": "Corazón",
+    "item.flor": "Flor",
+    "item.helice": "Hélice",
+    "item.corona": "Corona",
+    "item.seta": "Seta",
+    "item.lazo": "Lazo",
+    "item.estrellas": "Estrellas",
+    "item.hojas": "Hojas",
+    "item.burbujas": "Burbujas",
+    "item.corazones": "Corazones",
+    "item.pajaro": "Pájaro",
+    "item.nube": "Nube",
+    "item.ranita": "Ranita",
+    "item.estrellita": "Estrellita",
+    sneeze: "¡ACHÚS!",
+    file: "Abre este juego con un servidor local, no como archivo suelto.",
+  },
+  en: {
+    dance: "Dance",
+    home: "Home",
+    again: "Again",
+    doll: "My doll",
+    shop: "The shop",
+    "dress.note": "Tap to change how it looks.",
+    done: "Done",
+    play: "Play",
+    notNow: "Not now",
+    "board.heading": "Your badges",
+    close: "Close",
+    left: "Left",
+    forward: "Forward",
+    back: "Back",
+    right: "Right",
+    jump: "JUMP",
+    "jump.label": "Jump",
+    "lang.group": "Language",
+    "sound.off": "Mute",
+    "sound.on": "Turn sound on",
+    "hint.walk": "Walk to a gate",
+    "hint.belt": "The belt pushes",
+    "hint.plank": "The plank moves",
+    "hint.table": "The table moves",
+    "hint.poof": "It vanishes!",
+    "hint.jump": "Space to jump",
+    "sign.belt": "Belt",
+    "sign.wheel": "Wheel",
+    "sign.plank": "Plank",
+    "sign.table": "Table",
+    "sign.poof": "Poof",
+    "sign.shop": "Shop",
+    "sign.doll": "Doll",
+    "sign.badges": "Badges",
+    "lane.corto": "Easy",
+    "lane.normal": "Normal",
+    "lane.largo": "Hard",
+    "lane.star": "{name}, with a star",
+    "mark.on": "★ Badge",
+    "mark.off": "☆",
+    "board.got": "Badge won!",
+    "board.need": "Finish this course to win it",
+    "world.fiesta": "The Party",
+    "world.cuesta": "The Hill",
+    "world.puente": "The Bridge",
+    "world.nubes": "The Clouds",
+    "world.globo": "The Balloon",
+    "win.fiesta": "The cake!",
+    "win.cuesta": "Ball pit!",
+    "win.puente": "The chest!",
+    "win.nubes": "The star!",
+    "win.globo": "The balloon!",
+    purse: "You have {coins} coins and {gems} gems.",
+    "win.fresh": "New badge. {purse}",
+    "win.star": "{lane} star. {purse}",
+    "shop.today": "Today: {day}. Tap to buy or wear.",
+    "shop.on": "Yay! {name} is on.",
+    "shop.off": "{name} put away.",
+    "shop.need.gems": "You need more gems! 💎",
+    "shop.need.coins": "You need more coins! 🪙",
+    "shop.got": "Yes! You got {name}.",
+    "shop.worn": "On",
+    "shop.wear": "Wear",
+    "slot.ropa": "Clothes",
+    "slot.accesorio": "Extras",
+    "slot.hat": "Hats",
+    "slot.trail": "Trails",
+    "slot.pet": "Pets",
+    "dress.hair": "Hair",
+    "dress.curls": "Curls",
+    "dress.short": "Short",
+    "dress.cap": "Cap",
+    "dress.face": "Face",
+    "dress.smile": "Smile",
+    "dress.open": "Open",
+    "dress.tongue": "Tongue",
+    "dress.glasses": "Glasses",
+    "dress.no": "No",
+    "dress.round": "Round",
+    "dress.sun": "Sun",
+    "dress.pack": "Backpack",
+    "dress.yes": "Yes",
+    "dress.art": "Picture",
+    "dress.plain": "Plain",
+    "dress.star": "Star",
+    "dress.sunart": "Sun",
+    "dress.heart": "Heart",
+    "dress.skin": "Skin",
+    "dress.shirt": "Shirt",
+    "dress.pants": "Pants",
+    "dress.shoes": "Shoes",
+    "dress.eyes": "Eyes",
+    "item.cam-roja": "Red shirt",
+    "item.cam-azul": "Blue shirt",
+    "item.cam-verde": "Green shirt",
+    "item.cam-lila": "Lilac shirt",
+    "item.cam-amarilla": "Yellow shirt",
+    "item.pant-azul": "Blue pants",
+    "item.pant-verde": "Green pants",
+    "item.pant-rojo": "Red pants",
+    "item.zap-amarillos": "Yellow shoes",
+    "item.zap-blancos": "White shoes",
+    "item.zap-rojos": "Red shoes",
+    "item.gafas-redondas": "Round glasses",
+    "item.gafas-sol": "Sunglasses",
+    "item.mochila": "Backpack",
+    "item.dibujo-estrella": "Star",
+    "item.dibujo-sol": "Sun",
+    "item.dibujo-corazon": "Heart",
+    "item.flor": "Flower",
+    "item.helice": "Propeller",
+    "item.corona": "Crown",
+    "item.seta": "Mushroom",
+    "item.lazo": "Bow",
+    "item.estrellas": "Stars",
+    "item.hojas": "Leaves",
+    "item.burbujas": "Bubbles",
+    "item.corazones": "Hearts",
+    "item.pajaro": "Bird",
+    "item.nube": "Cloud",
+    "item.ranita": "Froggy",
+    "item.estrellita": "Little star",
+    sneeze: "ACHOO!",
+    file: "Open this game with a local server, not as a loose file.",
+  },
+};
+let lang = "en";
+
+function t(key, vars) {
+  let text = (STR[lang] && STR[lang][key]) || STR.es[key] || key;
+  if (vars) {
+    for (const [name, value] of Object.entries(vars)) text = text.replaceAll(`{${name}}`, value);
+  }
+  return text;
+}
+
+function itemLabel(item) {
+  return t(`item.${item.id}`);
+}
 
 function emptyBadges() {
   return Object.fromEntries(COURSES.map((c) => [c.id, false]));
@@ -654,12 +920,14 @@ function loadSave() {
       owned[slot] = list.filter((id) => ids.has(id));
       if (ids.has(raw.gear?.[slot]) && owned[slot].includes(raw.gear[slot])) gear[slot] = raw.gear[slot];
     }
-    return { look, coins, gems, badges, owned, gear, paths };
+    const lang = raw.lang === "es" ? "es" : "en";
+    return { look, coins, gems, badges, owned, gear, paths, lang };
   } catch {
-    return { look: { ...DEFAULT_LOOK }, coins: 0, gems: 0, badges, owned, gear, paths: emptyPaths() };
+    return { look: { ...DEFAULT_LOOK }, coins: 0, gems: 0, badges, owned, gear, paths: emptyPaths(), lang: "en" };
   }
 }
 const saved = loadSave();
+lang = saved.lang;
 let avatar = saved.look;
 const wallet = { coins: saved.coins, gems: saved.gems };
 const badges = saved.badges;
@@ -669,7 +937,7 @@ const gear = saved.gear;
 let course = null;
 
 function persist() {
-  localStorage.setItem(SAVE_KEY, JSON.stringify({ look: avatar, coins: wallet.coins, gems: wallet.gems, badges, paths, owned, gear }));
+  localStorage.setItem(SAVE_KEY, JSON.stringify({ look: avatar, coins: wallet.coins, gems: wallet.gems, badges, paths, owned, gear, lang }));
 }
 
 function showProgress() {
@@ -677,7 +945,7 @@ function showProgress() {
   gemsEl.textContent = `💎 ${wallet.gems}`;
   for (const btn of gamesEl.querySelectorAll("button")) {
     const mark = btn.querySelector("small");
-    if (mark) mark.textContent = badges[btn.dataset.course] ? "★ Insignia" : "☆";
+    if (mark) mark.textContent = badges[btn.dataset.course] ? t("mark.on") : t("mark.off");
   }
   for (const [id, stars] of Object.entries(portalStars)) {
     const def = COURSES.find((item) => item.id === id);
@@ -1023,19 +1291,31 @@ function roundRect(g, x, y, w, h, r) {
   g.closePath();
 }
 
-function makeSign(text, bg) {
-  const c = document.createElement("canvas");
-  c.width = 512;
-  c.height = 256;
+function paintSign(mesh) {
+  const text = t(mesh.userData.key);
+  const c = mesh.userData.canvas;
   const g = c.getContext("2d");
-  g.fillStyle = bg;
+  g.clearRect(0, 0, c.width, c.height);
+  g.fillStyle = mesh.userData.bg;
   roundRect(g, 12, 16, 488, 224, 48);
   g.fill();
   g.fillStyle = "#3a2a22";
-  g.font = "700 64px Fredoka, Trebuchet MS, sans-serif";
   g.textAlign = "center";
   g.textBaseline = "middle";
+  let size = 64;
+  g.font = `700 ${size}px Fredoka, Trebuchet MS, sans-serif`;
+  while (size > 34 && g.measureText(text).width > 440) {
+    size -= 2;
+    g.font = `700 ${size}px Fredoka, Trebuchet MS, sans-serif`;
+  }
   g.fillText(text, 256, 138);
+  if (mesh.material.map) mesh.material.map.needsUpdate = true;
+}
+
+function makeSign(key, bg) {
+  const c = document.createElement("canvas");
+  c.width = 512;
+  c.height = 256;
   const tex = new THREE.CanvasTexture(c);
   tex.colorSpace = THREE.SRGBColorSpace;
   const mesh = new THREE.Mesh(
@@ -1043,7 +1323,11 @@ function makeSign(text, bg) {
     new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false })
   );
   mesh.renderOrder = 2;
+  mesh.userData.key = key;
+  mesh.userData.bg = bg;
+  mesh.userData.canvas = c;
   signs.push(mesh);
+  paintSign(mesh);
   return mesh;
 }
 
@@ -1082,6 +1366,9 @@ function clearCourse() {
     mat.dispose();
   }
   courseRoot.clear();
+  for (let i = signs.length - 1; i >= 0; i--) {
+    if (!signs[i].parent) signs.splice(i, 1);
+  }
   solids.length = 0;
   flags.length = 0;
   wheels.length = 0;
@@ -1120,7 +1407,7 @@ function buildPlaza() {
     buildPortal(def, portal.x, 86);
     spots.push({ id: def.id, kind: "portal", course: def.id, minX: portal.x - 1.6, maxX: portal.x + 1.6, minZ: 83.6, maxZ: 89.2 });
   }
-  buildStall(-10, 99, "Tienda", "#ffd23f");
+  buildStall(-10, 99, "sign.shop", "#ffd23f");
   buildMirror(10, 99);
   buildBoard(-6.6, 99.4);
   spots.push({ id: "board", kind: "board", minX: -8.2, maxX: -5.0, minZ: 99.7, maxZ: 101.8 });
@@ -1164,7 +1451,7 @@ function buildPortal(def, x, z) {
   const pad = new THREE.Mesh(new THREE.BoxGeometry(2.3, 0.08, 2.1), glow);
   pad.position.set(x, 6.05, z);
   plazaRoot.add(pad);
-  const sign = makeSign(def.name, def.tint);
+  const sign = makeSign(`world.${def.id}`, def.tint);
   sign.position.set(x, 9.15, z);
   plazaRoot.add(sign);
   const marks = def.lanes
@@ -1337,7 +1624,7 @@ function paintBoard() {
   g.font = "700 62px Fredoka, Trebuchet MS, sans-serif";
   g.textAlign = "center";
   g.textBaseline = "middle";
-  g.fillText("Insignias", w / 2 - 8, 86);
+  g.fillText(t("sign.badges"), w / 2 - 8, 86);
   drawStar(g, 250, 86, 22, "#ffd23f");
   drawStar(g, w - 278, 86, 22, "#ffd23f");
   const spots = [
@@ -1364,10 +1651,16 @@ function paintBoard() {
     g.restore();
     drawStar(g, x + 46, y - 46, got ? 20 : 16, got ? "#ffd23f" : "#c9b48f");
     g.fillStyle = "#4a2e1b";
-    g.font = "700 32px Fredoka, Trebuchet MS, sans-serif";
+    const label = t(`world.${id}`);
+    let size = 32;
     g.textAlign = "center";
     g.textBaseline = "middle";
-    g.fillText(def.name, x, y + 104);
+    g.font = `700 ${size}px Fredoka, Trebuchet MS, sans-serif`;
+    while (size > 18 && g.measureText(label).width > 148) {
+      size -= 2;
+      g.font = `700 ${size}px Fredoka, Trebuchet MS, sans-serif`;
+    }
+    g.fillText(label, x, y + 104);
   }
   if (boardTex) boardTex.needsUpdate = true;
 }
@@ -1404,7 +1697,7 @@ function buildMirror(x, z) {
   const glassMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.95, 1.45), glass);
   glassMesh.position.set(x, 7.05, z);
   plazaRoot.add(postL, postR, glassMesh);
-  const sign = makeSign("Muñeco", "#fff6ea");
+  const sign = makeSign("sign.doll", "#fff6ea");
   sign.position.set(x, 8.45, z + 0.28);
   sign.renderOrder = 2;
   plazaRoot.add(sign);
@@ -1481,17 +1774,17 @@ function buildCourse(def) {
       slide: s.slide || null,
       blink: s.blink || null,
     });
-    if (s.belt) placeSign("Cinta", "#f2c14e", s.x - s.w / 2 - 1.55, s.top + 1.4, s.z);
+    if (s.belt) placeSign("sign.belt", "#f2c14e", s.x - s.w / 2 - 1.55, s.top + 1.4, s.z);
     if (s.wheel) {
       buildWheel(solid, s.wheel);
-      placeSign("Rueda", "#ff6b4a", s.x - s.w / 2 - 1.55, s.top + 1.4, s.z);
+      placeSign("sign.wheel", "#ff6b4a", s.x - s.w / 2 - 1.55, s.top + 1.4, s.z);
     }
     if (s.slide && solid.group) {
-      const tag = makeSign(s.slide.label || "Tabla", "#c46b4a");
+      const tag = makeSign(s.slide.label === "Mesa" ? "sign.table" : "sign.plank", "#c46b4a");
       tag.position.set(s.w / 2 + 1.55, solid.h / 2 + 1.55, 0);
       solid.group.add(tag);
     }
-    if (s.blink) placeSign("Puf", "#fff6ea", s.x - s.w / 2 - 1.55, s.top + 1.55, s.z);
+    if (s.blink) placeSign("sign.poof", "#fff6ea", s.x - s.w / 2 - 1.55, s.top + 1.55, s.z);
   }
   const fin = def.steps.find((s) => s.id === "finish");
   if (def.ending === "balls") {
@@ -2505,7 +2798,7 @@ function sneeze() {
   burst(achoo.position.x, achoo.position.y + 0.4, achoo.position.z - 0.8);
   const mouth = achoo.userData.mouth;
   mouth.scale.set(1.4, 1.5, 0.7);
-  showToast("¡ACHÚS!");
+  showToast(t("sneeze"));
   sneezeSound();
 }
 
@@ -2725,13 +3018,8 @@ function step(dt, time) {
       if (fresh) badges[course.id] = true;
       persist();
       showProgress();
-      winTitle.textContent = course.winTitle;
-      const purse = `Llevas ${wallet.coins} monedas y ${wallet.gems} gemas.`;
-      winText.textContent = fresh
-        ? `Insignia nueva. ${purse}`
-        : freshStar
-          ? `Estrella de ${LANE_NAME[lane]}. ${purse}`
-          : purse;
+      lastWin = { fresh, freshStar, lane };
+      fillWin();
       winCard.hidden = false;
       hintEl.hidden = true;
       winSound();
@@ -2993,18 +3281,18 @@ function updateHint() {
   }
   if (state === "home") {
     hintEl.hidden = false;
-    hintEl.textContent = "Camina hacia un portal";
+    hintEl.textContent = t("hint.walk");
     return;
   }
   const floor = player.floor;
   const text = floor && floor.belt
-    ? "La cinta empuja"
+    ? t("hint.belt")
       : floor && floor.slide
-      ? floor.slide.hint || "La tabla se mueve"
+      ? (floor.slide.label === "Mesa" ? t("hint.table") : t("hint.plank"))
       : floor && floor.blink && floor.warn
-        ? "¡Se esfuma!"
+        ? t("hint.poof")
         : floor && floor.id === "start" && !didJump
-          ? "Espacio para saltar"
+          ? t("hint.jump")
           : "";
   hintEl.hidden = !text;
   hintEl.textContent = text;
@@ -3127,14 +3415,15 @@ function paintGateLanes(def) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.dataset.lane = lane;
-    btn.textContent = LANE_NAME[lane];
+    const laneName = t(`lane.${lane}`);
+    btn.textContent = laneName;
     if (paths[def.id]?.[lane]) {
       const star = document.createElement("span");
       star.className = "lane-star";
       star.textContent = "★";
       star.setAttribute("aria-hidden", "true");
       btn.append(star);
-      btn.setAttribute("aria-label", `${LANE_NAME[lane]}, con estrella`);
+      btn.setAttribute("aria-label", t("lane.star", { name: laneName }));
     }
     btn.addEventListener("click", () => {
       btn.blur();
@@ -3153,7 +3442,7 @@ function openGate(id) {
   jumpEdge = false;
   player.vel.set(0, 0, 0);
   gateArt.className = `poster ${def.id}`;
-  gateTitle.textContent = def.name;
+  gateTitle.textContent = t(`world.${def.id}`);
   gateEl.style.setProperty("--tint", def.tint);
   gateEl.style.setProperty("--shade", def.shade);
   gateBadge.hidden = !badges[def.id];
@@ -3168,13 +3457,9 @@ function closeGate() {
   if (state === "gate") state = "home";
 }
 
-function openBoardCard() {
-  state = "gate";
-  jumpEdge = false;
-  player.vel.set(0, 0, 0);
+function fillBoard() {
   boardList.textContent = "";
   for (const id of BOARD_ORDER) {
-    const def = COURSES.find((item) => item.id === id);
     const got = !!badges[id];
     const li = document.createElement("li");
     li.className = got ? "got" : "";
@@ -3182,13 +3467,20 @@ function openBoardCard() {
     st.className = "st";
     st.textContent = got ? "★" : "☆";
     const text = document.createElement("span");
-    text.textContent = def.name;
+    text.textContent = t(`world.${id}`);
     const note = document.createElement("small");
-    note.textContent = got ? "¡Insignia ganada!" : "Termina este recorrido para ganarla";
+    note.textContent = got ? t("board.got") : t("board.need");
     text.append(note);
     li.append(st, text);
     boardList.append(li);
   }
+}
+
+function openBoardCard() {
+  state = "gate";
+  jumpEdge = false;
+  player.vel.set(0, 0, 0);
+  fillBoard();
   boardEl.hidden = false;
   hintEl.hidden = true;
 }
@@ -3214,7 +3506,7 @@ function openShop() {
   dresserEl.hidden = true;
   hud.hidden = false;
   shopEl.hidden = false;
-  shopNote.textContent = `Hoy: ${shopDayLabel()}. Toca para comprar o poner.`;
+  shopNote.textContent = t("shop.today", { day: shopDayLabel() });
   renderShop();
 }
 
@@ -3233,7 +3525,8 @@ for (const item of COURSES) {
   btn.style.setProperty("--tint", item.tint);
   btn.style.setProperty("--shade", item.shade);
   const name = document.createElement("span");
-  name.textContent = item.name;
+  name.dataset.i18n = `world.${item.id}`;
+  name.textContent = t(`world.${item.id}`);
   const count = document.createElement("small");
   btn.append(name, count);
   btn.addEventListener("click", () => {
@@ -3298,8 +3591,7 @@ danceBtn.addEventListener("click", () => {
 muteBtn.addEventListener("click", () => {
   muted = !muted;
   muteBtn.classList.toggle("is-muted", muted);
-  muteBtn.setAttribute("aria-label", muted ? "Activar sonido" : "Silenciar");
-  muteBtn.title = muted ? "Activar sonido" : "Sonido";
+  paintMute();
   if (!muted) audio();
 });
 
@@ -3347,38 +3639,38 @@ window.addEventListener("resize", () => {
 });
 
 const ROWS = [
-  ["skin", "Piel", "#ffe8d6", ["#f6c7a8", "#e0ac8a", "#c68642", "#8d5524"]],
-  ["shirt", "Camiseta", "#ffe0ef", ["#ff6b4a", "#3d7ec9", "#3aaa62", "#7c5cbf", "#ffd23f"]],
-  ["pants", "Pantalón", "#d9efff", ["#3e4c8a", "#2f6b4f", "#c45b58", "#2a211c", "#f4e1c1"]],
-  ["shoes", "Zapatos", "#fff3b0", ["#ffb703", "#fffdf8", "#3a2a22", "#7ec8e3", "#ff6b4a"]],
-  ["hair", "Pelo", "#efe2ff", ["#4a2c24", "#1a1a1a", "#e6b15a", "#e07090", "#7c5cbf"]],
-  ["eyes", "Ojos", "#d9f5c9", ["#1aa894", "#3d7ec9", "#6b4a2a", "#7c5cbf"]],
+  ["skin", "dress.skin", "#ffe8d6", ["#f6c7a8", "#e0ac8a", "#c68642", "#8d5524"]],
+  ["shirt", "dress.shirt", "#ffe0ef", ["#ff6b4a", "#3d7ec9", "#3aaa62", "#7c5cbf", "#ffd23f"]],
+  ["pants", "dress.pants", "#d9efff", ["#3e4c8a", "#2f6b4f", "#c45b58", "#2a211c", "#f4e1c1"]],
+  ["shoes", "dress.shoes", "#fff3b0", ["#ffb703", "#fffdf8", "#3a2a22", "#7ec8e3", "#ff6b4a"]],
+  ["hair", "dress.hair", "#efe2ff", ["#4a2c24", "#1a1a1a", "#e6b15a", "#e07090", "#7c5cbf"]],
+  ["eyes", "dress.eyes", "#d9f5c9", ["#1aa894", "#3d7ec9", "#6b4a2a", "#7c5cbf"]],
 ];
 const STYLES = [
-  ["rizos", "Rizos", "look-rizos"],
-  ["corto", "Corto", "look-corto"],
-  ["gorra", "Gorra", "look-gorra"],
+  ["rizos", "dress.curls", "look-rizos"],
+  ["corto", "dress.short", "look-corto"],
+  ["gorra", "dress.cap", "look-gorra"],
 ];
 const LOOKS = [
-  ["face", "Cara", "#fff3b0", [
-    ["sonrisa", "Sonrisa", "look-sonrisa"],
-    ["abierta", "Abierta", "look-abierta"],
-    ["lengua", "Lengua", "look-lengua"],
+  ["face", "dress.face", "#fff3b0", [
+    ["sonrisa", "dress.smile", "look-sonrisa"],
+    ["abierta", "dress.open", "look-abierta"],
+    ["lengua", "dress.tongue", "look-lengua"],
   ]],
-  ["glasses", "Gafas", "#d9efff", [
-    ["no", "No", "look-no"],
-    ["redondas", "Redondas", "look-gafas"],
-    ["sol", "De sol", "look-gafas-sol"],
+  ["glasses", "dress.glasses", "#d9efff", [
+    ["no", "dress.no", "look-no"],
+    ["redondas", "dress.round", "look-gafas"],
+    ["sol", "dress.sun", "look-gafas-sol"],
   ]],
-  ["pack", "Mochila", "#dff7fb", [
-    ["no", "No", "look-no"],
-    ["mochila", "Sí", "look-mochila"],
+  ["pack", "dress.pack", "#dff7fb", [
+    ["no", "dress.no", "look-no"],
+    ["mochila", "dress.yes", "look-mochila"],
   ]],
-  ["shirtArt", "Dibujo", "#ffe0ef", [
-    ["lisa", "Lisa", "look-lisa"],
-    ["estrella", "Estrella", "look-estrella"],
-    ["sol", "Sol", "look-sol"],
-    ["corazon", "Corazón", "look-corazon"],
+  ["shirtArt", "dress.art", "#ffe0ef", [
+    ["lisa", "dress.plain", "look-lisa"],
+    ["estrella", "dress.star", "look-estrella"],
+    ["sol", "dress.sunart", "look-sol"],
+    ["corazon", "dress.heart", "look-corazon"],
   ]],
 ];
 const swatchRoot = document.querySelector("#swatches");
@@ -3406,7 +3698,8 @@ function makeLookCard(key, value, label, artClass) {
   btn.dataset.look = key;
   btn.dataset.value = value;
   const name = document.createElement("strong");
-  name.textContent = label;
+  name.dataset.i18n = label;
+  name.textContent = t(label);
   btn.append(lookArt(artClass), name);
   btn.addEventListener("click", () => chooseLook(key, value));
   return btn;
@@ -3417,7 +3710,8 @@ function makeDressSection(title, tint, gridClass = "look-grid") {
   row.className = "dress-block";
   row.style.setProperty("--slot", tint);
   const name = document.createElement("h3");
-  name.textContent = title;
+  name.dataset.i18n = title;
+  name.textContent = t(title);
   const grid = document.createElement("div");
   grid.className = gridClass;
   row.append(name, grid);
@@ -3425,7 +3719,7 @@ function makeDressSection(title, tint, gridClass = "look-grid") {
 }
 
 {
-  const { row, grid } = makeDressSection("Pelo", "#efe2ff");
+  const { row, grid } = makeDressSection("dress.hair", "#efe2ff");
   for (const [value, label, art] of STYLES) grid.append(makeLookCard("hairStyle", value, label, art));
   swatchRoot.append(row);
 }
@@ -3626,7 +3920,7 @@ function shopDayKey() {
 }
 
 function shopDayLabel() {
-  return new Date().toLocaleDateString("es-ES", { day: "numeric", month: "short" });
+  return new Date().toLocaleDateString(lang === "en" ? "en-US" : "es-ES", { day: "numeric", month: "short" });
 }
 
 function dayRand(seed) {
@@ -3678,7 +3972,7 @@ function renderShop() {
     row.className = "shop-row";
     row.style.setProperty("--slot", SLOT_TINT[slot]);
     const title = document.createElement("h3");
-    title.textContent = SLOT_LABEL[slot];
+    title.textContent = t(`slot.${slot}`);
     const grid = document.createElement("div");
     grid.className = "shop-grid";
     for (const item of items) {
@@ -3691,10 +3985,10 @@ function renderShop() {
       btn.classList.toggle("on", worn);
       btn.classList.toggle("owned", has);
       const name = document.createElement("strong");
-      name.textContent = item.name;
+      name.textContent = itemLabel(item);
       const tag = document.createElement("span");
       tag.className = "shop-tag";
-      tag.textContent = worn ? "Puesto" : has ? "Poner" : priceLabel(item);
+      tag.textContent = worn ? t("shop.worn") : has ? t("shop.wear") : priceLabel(item);
       btn.append(shopArt(item), name, tag);
       btn.addEventListener("click", () => buyOrWear(item));
       grid.append(btn);
@@ -3723,20 +4017,20 @@ function buyOrWear(item) {
     if (item.look) {
       const on = !isWorn(item);
       applyLookItem(item, on);
-      shopNote.textContent = on ? `¡Qué guay! ${item.name} puesto.` : `${item.name} guardado.`;
+      shopNote.textContent = on ? t("shop.on", { name: itemLabel(item) }) : t("shop.off", { name: itemLabel(item) });
     } else {
       gear[item.slot] = gear[item.slot] === item.id ? null : item.id;
-      shopNote.textContent = gear[item.slot] ? `¡Qué guay! ${item.name} puesto.` : `${item.name} guardado.`;
+      shopNote.textContent = gear[item.slot] ? t("shop.on", { name: itemLabel(item) }) : t("shop.off", { name: itemLabel(item) });
     }
   } else if (wallet[item.pay] < item.price) {
-    shopNote.textContent = item.pay === "gems" ? "¡Te faltan gemas! 💎" : "¡Te faltan monedas! 🪙";
+    shopNote.textContent = item.pay === "gems" ? t("shop.need.gems") : t("shop.need.coins");
     return;
   } else {
     wallet[item.pay] -= item.price;
     owned[item.slot].push(item.id);
     if (item.look) applyLookItem(item, true);
     else gear[item.slot] = item.id;
-    shopNote.textContent = `¡Sí! Ya tienes ${item.name}.`;
+    shopNote.textContent = t("shop.got", { name: itemLabel(item) });
     showProgress();
     updateHud();
   }
@@ -3750,7 +4044,10 @@ applyGear();
 showProgress();
 
 if (location.protocol === "file:") {
-  homeEl.insertAdjacentHTML("beforeend", "<p>Abre este juego con un servidor local, no como archivo suelto.</p>");
+  const fileNote = document.createElement("p");
+  fileNote.dataset.i18n = "file";
+  fileNote.textContent = t("file");
+  homeEl.append(fileNote);
 }
 
 homeEl.hidden = true;
@@ -3766,4 +4063,83 @@ achoo.position.copy(achooHome);
 snapCam = true;
 frameHomeCamera();
 updateHud();
+
+let lastWin = null;
+const langSwitch = document.querySelector("#lang");
+
+function fillWin() {
+  if (!lastWin || !course) return;
+  winTitle.textContent = t(`win.${course.id}`);
+  const purse = t("purse", { coins: wallet.coins, gems: wallet.gems });
+  winText.textContent = lastWin.fresh
+    ? t("win.fresh", { purse })
+    : lastWin.freshStar
+      ? t("win.star", { lane: t(`lane.${lastWin.lane}`), purse })
+      : purse;
+}
+
+function paintMute() {
+  const label = muted ? t("sound.on") : t("sound.off");
+  muteBtn.setAttribute("aria-label", label);
+  muteBtn.title = label;
+}
+
+function paintLang() {
+  langSwitch.setAttribute("aria-label", t("lang.group"));
+  for (const btn of langSwitch.querySelectorAll("button")) {
+    const on = btn.dataset.lang === lang;
+    btn.classList.toggle("on", on);
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+  }
+}
+
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll("[data-i18n-label]").forEach((el) => {
+    const text = t(el.dataset.i18nLabel);
+    el.setAttribute("aria-label", text);
+    if (el.hasAttribute("title")) el.title = text;
+  });
+  paintMute();
+  paintLang();
+  for (const mesh of signs) {
+    if (mesh.parent) paintSign(mesh);
+  }
+  paintBoard();
+  showProgress();
+  if (gateId && !gateEl.hidden) {
+    const def = COURSES.find((item) => item.id === gateId);
+    gateTitle.textContent = t(`world.${def.id}`);
+    paintGateLanes(def);
+  }
+  if (!boardEl.hidden) fillBoard();
+  if (!shopEl.hidden) {
+    shopNote.textContent = t("shop.today", { day: shopDayLabel() });
+    renderShop();
+  }
+  if (!winCard.hidden) fillWin();
+  swatchRoot.querySelectorAll(".dot").forEach((dot) => {
+    const key = dot.closest(".dress-block")?.querySelector("h3")?.dataset.i18n;
+    if (key) dot.setAttribute("aria-label", `${t(key)} ${dot.dataset.value}`);
+  });
+}
+
+function setLang(next) {
+  if (next !== "es" && next !== "en") return;
+  lang = next;
+  persist();
+  applyLang();
+}
+
+langSwitch.addEventListener("click", (e) => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  btn.blur();
+  setLang(btn.dataset.lang);
+});
+
+applyLang();
 frame();

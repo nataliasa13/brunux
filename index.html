@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=44">
+  <link rel="stylesheet" href="style.css?v=45">
 </head>
 <body>
   <div id="view"></div>
@@ -21,7 +21,11 @@
   <p id="hint" hidden></p>
   <p id="toast" aria-live="polite"></p>
 
-  <button id="mute" class="ghost icon-btn" type="button" aria-label="Sonido" title="Sonido">
+  <div id="lang" class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="es" aria-label="Español">ES</button>
+    <button type="button" data-lang="en" aria-label="English">EN</button>
+  </div>
+  <button id="mute" class="ghost icon-btn" type="button" aria-label="Mute" title="Mute">
     <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M4 9h3.2L11 5.5v13L7.2 15H4V9z"/>
       <path class="line wave" d="M14.2 8.2a4.4 4.4 0 0 1 0 7.6"/>
@@ -29,21 +33,21 @@
       <path class="line mute-x" d="M14 9.5 19.5 15M19.5 9.5 14 15"/>
     </svg>
   </button>
-  <button id="dance" class="ghost label-btn" type="button" aria-label="Bailar" title="Bailar">
+  <button id="dance" class="ghost label-btn" type="button" data-i18n-label="dance" aria-label="Dance" title="Dance">
     <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
       <ellipse cx="7.2" cy="17.2" rx="2.4" ry="1.8"/>
       <ellipse cx="15.8" cy="15.2" rx="2.4" ry="1.8"/>
       <path class="line" d="M9.6 17V6.2l8.6-1.6V15"/>
       <path class="line" d="M9.6 9.2 18.2 7.6"/>
     </svg>
-    <span>Bailar</span>
+    <span data-i18n="dance">Dance</span>
   </button>
-  <button id="casa" class="ghost icon-btn" type="button" hidden aria-label="Casa" title="Casa">
+  <button id="casa" class="ghost icon-btn" type="button" hidden data-i18n-label="home" aria-label="Home" title="Home">
     <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M4.5 11.2 12 4.5l7.5 6.7V20h-5.2v-4.8H9.7V20H4.5z"/>
     </svg>
   </button>
-  <button id="reset" class="ghost icon-btn" type="button" hidden aria-label="Otra vez" title="Otra vez">
+  <button id="reset" class="ghost icon-btn" type="button" hidden data-i18n-label="again" aria-label="Again" title="Again">
     <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
       <path class="line" d="M7.2 7.2a7 7 0 1 1-1.4 7.4"/>
       <path d="M7.2 3.6v5H12"/>
@@ -57,24 +61,24 @@
       <span id="gems">💎 0</span>
     </div>
     <div class="home-actions">
-      <button id="dress" type="button">Mi muñeco</button>
-      <button id="shop-open" type="button">La tienda</button>
+      <button id="dress" type="button" data-i18n="doll">My doll</button>
+      <button id="shop-open" type="button" data-i18n="shop">The shop</button>
     </div>
     <div id="games"></div>
   </section>
 
   <section id="dresser" class="sheet" hidden>
-    <h2>Mi muñeco</h2>
-    <p id="dress-note">Toca para cambiar cómo se ve.</p>
+    <h2 data-i18n="doll">My doll</h2>
+    <p id="dress-note" data-i18n="dress.note">Tap to change how it looks.</p>
     <div id="swatches"></div>
-    <button id="dressed" type="button">Listo</button>
+    <button id="dressed" type="button" data-i18n="done">Done</button>
   </section>
 
   <section id="shop" class="sheet" hidden>
-    <h2>La tienda</h2>
+    <h2 data-i18n="shop">The shop</h2>
     <p id="shop-note"></p>
     <div id="catalog"></div>
-    <button id="shop-close" type="button">Listo</button>
+    <button id="shop-close" type="button" data-i18n="done">Done</button>
   </section>
 
   <section id="gate" class="card" hidden>
@@ -87,37 +91,37 @@
       <span class="shape e"></span>
       <span class="shape f"></span>
     </div>
-    <h2 id="gate-title">La cuesta</h2>
+    <h2 id="gate-title">The Hill</h2>
     <div id="gate-lanes" class="lanes" hidden></div>
-    <button id="gate-play" type="button">Jugar</button>
-    <button id="gate-back" class="quiet" type="button">Ahora no</button>
+    <button id="gate-play" type="button" data-i18n="play">Play</button>
+    <button id="gate-back" class="quiet" type="button" data-i18n="notNow">Not now</button>
   </section>
 
   <section id="board-card" class="card" hidden>
-    <h2>Tus insignias</h2>
+    <h2 data-i18n="board.heading">Your badges</h2>
     <ul id="board-list"></ul>
-    <button id="board-back" class="quiet" type="button">Cerrar</button>
+    <button id="board-back" class="quiet" type="button" data-i18n="close">Close</button>
   </section>
 
   <section id="win" class="card" hidden>
-    <h2 id="win-title">¡Piscina de bolas!</h2>
+    <h2 id="win-title">Ball pit!</h2>
     <p id="win-text"></p>
-    <button id="replay" type="button">Otra vez</button>
-    <button id="win-home" class="quiet" type="button">Casa</button>
+    <button id="replay" type="button" data-i18n="again">Again</button>
+    <button id="win-home" class="quiet" type="button" data-i18n="home">Home</button>
   </section>
 
   <div id="touch" aria-hidden="true">
     <div class="pad">
-      <button type="button" data-hold="left" aria-label="Izquierda">◀</button>
+      <button type="button" data-hold="left" data-i18n-label="left" aria-label="Left">◀</button>
       <div class="nudge">
-        <button type="button" data-hold="forward" aria-label="Adelante">▲</button>
-        <button type="button" data-hold="back" aria-label="Atrás">▼</button>
+        <button type="button" data-hold="forward" data-i18n-label="forward" aria-label="Forward">▲</button>
+        <button type="button" data-hold="back" data-i18n-label="back" aria-label="Back">▼</button>
       </div>
-      <button type="button" data-hold="right" aria-label="Derecha">▶</button>
+      <button type="button" data-hold="right" data-i18n-label="right" aria-label="Right">▶</button>
     </div>
-    <button type="button" id="jump" class="jump" aria-label="Saltar">SALTAR</button>
+    <button type="button" id="jump" class="jump" data-i18n="jump" data-i18n-label="jump.label" aria-label="Jump">JUMP</button>
   </div>
 
-  <script type="module" src="game.js?v=77"></script>
+  <script type="module" src="game.js?v=79"></script>
 </body>
 </html>

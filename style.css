@@ -127,6 +127,29 @@ button {
 
 #mute { top: 0.8rem; right: 0.8rem; }
 #dance { top: 3.7rem; right: 0.8rem; }
+.lang {
+  position: fixed;
+  z-index: 4;
+  top: 7.1rem;
+  right: 0.8rem;
+  display: flex;
+  gap: 0.15rem;
+  background: rgba(255, 248, 239, 0.92);
+  border-radius: 999px;
+  padding: 0.18rem;
+  box-shadow: 0 4px 0 rgba(58, 42, 34, 0.12);
+}
+.lang button {
+  min-width: 2.35rem;
+  min-height: 2.15rem;
+  border-radius: 999px;
+  padding: 0 0.45rem;
+  background: transparent;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.lang button.on { background: var(--lilac); }
 #dance.on { background: var(--lilac); }
 
 .label-btn {
