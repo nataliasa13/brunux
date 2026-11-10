@@ -31,6 +31,7 @@ const gateArt = document.querySelector("#gate-art");
 const gateTitle = document.querySelector("#gate-title");
 const gateBadge = document.querySelector("#gate-badge");
 const gatePlayBtn = document.querySelector("#gate-play");
+const gateLanes = document.querySelector("#gate-lanes");
 const gateBackBtn = document.querySelector("#gate-back");
 const danceBtn = document.querySelector("#dance");
 const dressBtn = document.querySelector("#dress");
@@ -121,32 +122,98 @@ const COURSES = [
     shade: "#d84d32",
     hill: 0x8ed48a,
     wall: 0xe0b15a,
-    steps: [
-      { id: "start", x: 0, z: 4, d: 8, top: 6, w: 8, color: 0x67c587 },
-      { id: "a", x: 0, z: -6.45, d: 6.5, top: 5.5, w: 7, color: 0xf2c14e },
-      { id: "b", x: 0, z: -16.15, d: 6.5, top: 5.1, w: 7, color: 0x7ec8e3, belt: 2 },
-      { id: "c", x: 0, z: -25.35, d: 5.5, top: 6.2, w: 6, color: 0xf7a1c4 },
-      { id: "d", x: 0, z: -34.55, d: 6.5, top: 5.0, w: 7, color: 0xb497f0, wheel: { len: 2.1, speed: 1.0 } },
-      { id: "e", x: 0, z: -43.5, d: 5, top: 6.1, w: 5.2, color: 0xff8c6a },
-      { id: "f", x: 0, z: -52.45, d: 6.5, top: 4.8, w: 7, color: 0x7ed6a5 },
-      { id: "g", x: 0, z: -61.9, d: 6, top: 4.4, w: 6, color: 0xf2c14e },
-      { id: "finish", x: 0, z: -73.6, d: 11, top: 3.6, w: 10, color: 0xf2d36b },
-    ],
-    coins: [
-      { x: 0, y: 6.4, z: -6.45 },
-      { x: 0, y: 6.0, z: -16.15 },
-      { x: 0, y: 7.1, z: -25.35 },
-      { x: 0, y: 5.9, z: -34.55 },
-      { x: 0, y: 7.0, z: -43.5 },
-      { x: 0, y: 5.3, z: -61.9 },
-    ],
-    gems: [
-      { x: 1.8, y: 7.05, z: -25.35 },
-      { x: -1.4, y: 6.95, z: -43.5 },
-    ],
-    hills: [[-16, -20, 10], [18, -48, 13], [-14, -90, 11]],
-    mushrooms: [[-3.1, 6, 5.2], [3.1, 5.5, -6.45]],
-    trees: [[-4.6, 6, 6.2], [4.4, 4.8, -52.45]],
+    lanes: {
+      corto: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 8, top: 6, w: 8, color: 0x67c587 },
+          { id: "a", x: 0, z: -6.45, d: 6.5, top: 5.5, w: 7, color: 0xf2c14e },
+          { id: "b", x: 0, z: -16.15, d: 6.5, top: 5.1, w: 7, color: 0x7ec8e3, belt: 2 },
+          { id: "c", x: 0, z: -25.35, d: 5.5, top: 6.2, w: 6, color: 0xf7a1c4 },
+          { id: "d", x: 0, z: -34.55, d: 6.5, top: 5.0, w: 7, color: 0xb497f0, wheel: { len: 2.1, speed: 1.0 } },
+          { id: "e", x: 0, z: -43.5, d: 5, top: 6.1, w: 5.2, color: 0xff8c6a },
+          { id: "f", x: 0, z: -52.45, d: 6.5, top: 4.8, w: 7, color: 0x7ed6a5 },
+          { id: "g", x: 0, z: -61.9, d: 6, top: 4.4, w: 6, color: 0xf2c14e },
+          { id: "finish", x: 0, z: -73.6, d: 11, top: 3.6, w: 10, color: 0xf2d36b },
+        ],
+        coins: [
+          { x: 0, y: 6.4, z: -6.45 },
+          { x: 0, y: 6.0, z: -16.15 },
+          { x: 0, y: 7.1, z: -25.35 },
+          { x: 0, y: 5.9, z: -34.55 },
+          { x: 0, y: 7.0, z: -43.5 },
+          { x: 0, y: 5.3, z: -61.9 },
+        ],
+        gems: [
+          { x: 1.8, y: 7.05, z: -25.35 },
+          { x: -1.4, y: 6.95, z: -43.5 },
+        ],
+        hills: [[-16, -20, 10], [18, -48, 13], [-14, -90, 11]],
+        mushrooms: [[-3.1, 6, 5.2], [3.1, 5.5, -6.45]],
+        trees: [[-4.6, 6, 6.2], [4.4, 4.8, -52.45]],
+      },
+      normal: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 7, top: 6, w: 6, color: 0x67c587 },
+          { id: "a", x: 0, z: -5.35, d: 5, top: 5.3, w: 5.2, color: 0xf2c14e },
+          { id: "b", x: 0, z: -13.8, d: 5.2, top: 4.95, w: 5.4, color: 0x7ec8e3, belt: 2.6 },
+          { id: "c", x: 0, z: -22.05, d: 4.6, top: 6, w: 4.8, color: 0xf7a1c4 },
+          { id: "d", x: 0, z: -30.45, d: 5.6, top: 4.9, w: 6.2, color: 0xb497f0, wheel: { len: 1.7, speed: 1.15 } },
+          { id: "e", x: 0, z: -38.9, d: 4.6, top: 5.95, w: 4.8, color: 0xff8c6a },
+          { id: "f", x: 0, z: -47.15, d: 5.2, top: 4.9, w: 5.4, color: 0x7ed6a5, belt: 2.6 },
+          { id: "g", x: 0, z: -55.85, d: 5.6, top: 5.95, w: 6.4, color: 0xf2c14e, wheel: { len: 1.75, speed: 1.2 } },
+          { id: "h", x: 0, z: -64.4, d: 4.8, top: 4.8, w: 5, color: 0xf7a1c4 },
+          { id: "finish", x: 0, z: -75.15, d: 10, top: 3.8, w: 8, color: 0xf2d36b },
+        ],
+        coins: [
+          { x: 0, y: 6.2, z: -5.35 },
+          { x: 0, y: 5.85, z: -13.8 },
+          { x: 0, y: 6.9, z: -22.05 },
+          { x: 1.7, y: 5.8, z: -30.45 },
+          { x: 0, y: 6.85, z: -38.9 },
+          { x: 0, y: 5.8, z: -47.15 },
+          { x: -1.7, y: 6.85, z: -55.85 },
+          { x: 0, y: 5.7, z: -64.4 },
+        ],
+        gems: [
+          { x: 1.2, y: 6.9, z: -22.05 },
+          { x: -1.2, y: 6.85, z: -38.9 },
+        ],
+        hills: [[-14, -10, 9], [15, -32, 11], [-13, -58, 10], [14, -86, 9]],
+        mushrooms: [[-2.4, 6, 5.4], [2.3, 5.3, -5.35]],
+        trees: [[-3.8, 6, 5.6], [3.6, 4.9, -47.15]],
+      },
+      largo: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 6.5, top: 6, w: 6, color: 0x67c587 },
+          { id: "a", x: 0, z: -5.05, d: 4.8, top: 5.2, w: 5, color: 0xf2c14e },
+          { id: "b", x: 0, z: -13.45, d: 5.2, top: 4.8, w: 5.6, color: 0x7ec8e3, belt: 2.8 },
+          { id: "c", x: 0, z: -21.95, d: 5, top: 5.9, w: 6.2, color: 0xf7a1c4, slide: { axis: "x", amp: 0.85, period: 2.8, label: "Tabla", hint: "La tabla se mueve" } },
+          { id: "d", x: 0, z: -30.6, d: 5.6, top: 4.8, w: 6.4, color: 0xb497f0, wheel: { len: 1.85, speed: 1.3 } },
+          { id: "e", x: 0, z: -39.3, d: 5, top: 5.9, w: 5.4, color: 0xfff6ea, blink: { on: 2.2, off: 0.85 } },
+          { id: "f", x: 0, z: -47.8, d: 5.2, top: 4.8, w: 5.6, color: 0x7ed6a5, belt: 2.8 },
+          { id: "g", x: 0, z: -56.55, d: 5.6, top: 5.9, w: 6.4, color: 0xf2c14e, wheel: { len: 1.85, speed: 1.3 } },
+          { id: "h", x: 0, z: -65.05, d: 4.6, top: 4.7, w: 4.8, color: 0xff8c6a },
+          { id: "finish", x: 0, z: -75.75, d: 10, top: 3.7, w: 8, color: 0xf2d36b },
+        ],
+        coins: [
+          { x: 0, y: 6.1, z: -5.05 },
+          { x: 0, y: 5.7, z: -13.45 },
+          { x: 0, y: 6.8, z: -21.95 },
+          { x: 1.8, y: 5.7, z: -30.6 },
+          { x: 0, y: 6.8, z: -39.3 },
+          { x: 0, y: 5.7, z: -47.8 },
+          { x: -1.8, y: 6.8, z: -56.55 },
+          { x: 0, y: 5.6, z: -65.05 },
+        ],
+        gems: [
+          { x: 1.4, y: 6.8, z: -21.95 },
+          { x: -1.3, y: 6.8, z: -39.3 },
+        ],
+        hills: [[-14, -8, 9], [15, -28, 11], [-13, -52, 10], [14, -84, 9]],
+        mushrooms: [[-2.3, 6, 5.2], [2.2, 5.2, -5.05]],
+        trees: [[-3.6, 6, 5.4], [3.5, 4.8, -47.8]],
+      },
+    },
   },
   {
     id: "puente",
@@ -157,29 +224,89 @@ const COURSES = [
     shade: "#2a629e",
     hill: 0x8ed48a,
     wall: 0xc4894a,
-    steps: [
-      { id: "start", x: 0, z: 4, d: 8, top: 6, w: 7.2, color: 0xd7a85a },
-      { id: "a", x: 2.45, z: -5.8, d: 5.2, top: 5.5, w: 4.2, color: 0xc4894a },
-      { id: "b", x: -2.45, z: -14.15, d: 5, top: 5.1, w: 4.2, color: 0xe7c98a },
-      { id: "c", x: 2.4, z: -22.3, d: 4.6, top: 6.2, w: 4, color: 0xc46b4a, slide: { axis: "x", amp: 0.75, period: 3.2 } },
-      { id: "d", x: -2.2, z: -30.4, d: 5.2, top: 5.25, w: 4.2, color: 0xd7a85a },
-      { id: "e", x: 2.1, z: -38.6, d: 4.4, top: 6.45, w: 3.8, color: 0xf0d7a2 },
-      { id: "finish", x: 0, z: -47.05, d: 6, top: 4.6, w: 6.5, color: 0xc4894a },
-    ],
-    coins: [
-      { x: 2.45, y: 6.4, z: -5.8 },
-      { x: -2.45, y: 6.0, z: -14.15 },
-      { x: 2.4, y: 7.1, z: -22.3 },
-      { x: -2.2, y: 6.15, z: -30.4 },
-      { x: 2.1, y: 7.35, z: -38.6 },
-    ],
-    gems: [
-      { x: -3.3, y: 6.0, z: -14.15 },
-      { x: -1.15, y: 6.15, z: -30.4 },
-    ],
-    hills: [[-14, -8, 9], [16, -28, 12], [-12, -58, 10]],
-    mushrooms: [[-2.3, 6, 6.2], [2.3, 6, 6.4]],
-    trees: [[-5.4, 6, 3.2], [5.2, 5.1, -14.15]],
+    lanes: {
+      corto: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 8, top: 6, w: 7.2, color: 0xd7a85a },
+          { id: "a", x: 2.45, z: -5.8, d: 5.2, top: 5.5, w: 4.2, color: 0xc4894a },
+          { id: "b", x: -2.45, z: -14.15, d: 5, top: 5.1, w: 4.2, color: 0xe7c98a },
+          { id: "c", x: 2.4, z: -22.3, d: 4.6, top: 6.2, w: 4, color: 0xc46b4a, slide: { axis: "x", amp: 0.75, period: 3.2 } },
+          { id: "d", x: -2.2, z: -30.4, d: 5.2, top: 5.25, w: 4.2, color: 0xd7a85a },
+          { id: "e", x: 2.1, z: -38.6, d: 4.4, top: 6.45, w: 3.8, color: 0xf0d7a2 },
+          { id: "finish", x: 0, z: -47.05, d: 6, top: 4.6, w: 6.5, color: 0xc4894a },
+        ],
+        coins: [
+          { x: 2.45, y: 6.4, z: -5.8 },
+          { x: -2.45, y: 6.0, z: -14.15 },
+          { x: 2.4, y: 7.1, z: -22.3 },
+          { x: -2.2, y: 6.15, z: -30.4 },
+          { x: 2.1, y: 7.35, z: -38.6 },
+        ],
+        gems: [
+          { x: -3.3, y: 6.0, z: -14.15 },
+          { x: -1.15, y: 6.15, z: -30.4 },
+        ],
+        hills: [[-14, -8, 9], [16, -28, 12], [-12, -58, 10]],
+        mushrooms: [[-2.3, 6, 6.2], [2.3, 6, 6.4]],
+        trees: [[-5.4, 6, 3.2], [5.2, 5.1, -14.15]],
+      },
+      normal: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 7.2, top: 6, w: 6.4, color: 0xd7a85a },
+          { id: "a", x: 2.2, z: -5.2, d: 4.6, top: 5.4, w: 3.6, color: 0xc4894a },
+          { id: "b", x: -2.2, z: -13.1, d: 4.6, top: 5.0, w: 3.6, color: 0xe7c98a, slide: { axis: "x", amp: 0.7, period: 2.8 } },
+          { id: "c", x: 2.15, z: -20.9, d: 4.4, top: 6.05, w: 3.6, color: 0xc46b4a },
+          { id: "d", x: -2.1, z: -28.7, d: 4.6, top: 5.1, w: 3.8, color: 0xd7a85a, slide: { axis: "x", amp: 0.75, period: 2.6 } },
+          { id: "e", x: 2, z: -36.45, d: 4.2, top: 6.15, w: 3.5, color: 0xf0d7a2 },
+          { id: "f", x: -0.7, z: -44.15, d: 4.6, top: 5.2, w: 4, color: 0xc4894a },
+          { id: "finish", x: 0, z: -52.7, d: 6, top: 4.4, w: 6.2, color: 0xc4894a },
+        ],
+        coins: [
+          { x: 2.2, y: 6.3, z: -5.2 },
+          { x: -2.2, y: 5.9, z: -13.1 },
+          { x: 2.15, y: 6.95, z: -20.9 },
+          { x: -2.1, y: 6.0, z: -28.7 },
+          { x: 2, y: 7.05, z: -36.45 },
+          { x: -0.7, y: 6.1, z: -44.15 },
+        ],
+        gems: [
+          { x: 2.7, y: 6.95, z: -20.9 },
+          { x: 1.5, y: 7.05, z: -36.45 },
+        ],
+        hills: [[-14, -6, 9], [16, -24, 11], [-12, -46, 10]],
+        mushrooms: [[-2.2, 6, 5.6], [2.2, 5.4, -5.2]],
+        trees: [[-5.2, 6, 3.4], [5, 5.2, -28.7]],
+      },
+      largo: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 7, top: 6, w: 6.6, color: 0xd7a85a },
+          { id: "a", x: 1.6, z: -5.25, d: 4.8, top: 5.3, w: 4.2, color: 0xc4894a },
+          { id: "b", x: 0, z: -13.65, d: 5.4, top: 4.9, w: 6.4, color: 0xe7c98a, belt: 2.4 },
+          { id: "c", x: 1.7, z: -21.95, d: 4.6, top: 5.95, w: 4.4, color: 0xc46b4a, slide: { axis: "x", amp: 0.8, period: 2.6 } },
+          { id: "d", x: 0, z: -30.35, d: 5.6, top: 4.9, w: 6.6, color: 0xd7a85a, wheel: { len: 1.7, speed: 1.2 } },
+          { id: "e", x: 1.7, z: -38.8, d: 4.6, top: 5.95, w: 4.4, color: 0xf0d7a2, blink: { on: 2.1, off: 0.8 } },
+          { id: "f", x: -1.0, z: -46.7, d: 4.6, top: 4.9, w: 4.2, color: 0xc4894a, slide: { axis: "x", amp: 0.55, period: 2.7 } },
+          { id: "g", x: 0, z: -54.9, d: 5.2, top: 5.9, w: 6.2, color: 0xe7c98a, wheel: { len: 1.65, speed: 1.25 } },
+          { id: "finish", x: 0, z: -63.9, d: 6.2, top: 4.5, w: 6.4, color: 0xc4894a },
+        ],
+        coins: [
+          { x: 1.6, y: 6.2, z: -5.25 },
+          { x: 0, y: 5.8, z: -13.65 },
+          { x: 1.7, y: 6.85, z: -21.95 },
+          { x: 1.6, y: 5.8, z: -30.35 },
+          { x: 1.7, y: 6.85, z: -38.8 },
+          { x: -1.0, y: 5.8, z: -46.7 },
+          { x: -1.5, y: 6.8, z: -54.9 },
+        ],
+        gems: [
+          { x: 0.9, y: 6.85, z: -21.95 },
+          { x: 1.2, y: 6.85, z: -38.8 },
+        ],
+        hills: [[-14, -8, 9], [16, -30, 11], [-12, -56, 10]],
+        mushrooms: [[-2.4, 6, 5.4], [2.3, 5.3, -5.25]],
+        trees: [[-5, 6, 3.2], [5.2, 4.9, -30.35]],
+      },
+    },
   },
   {
     id: "nubes",
@@ -190,31 +317,91 @@ const COURSES = [
     shade: "#5d4496",
     hill: 0xc5e6f5,
     wall: 0xfff6ea,
-    steps: [
-      { id: "start", x: 0, z: 4, d: 7.5, top: 7, w: 7, color: 0xfff6ea },
-      { id: "a", x: 0, z: -5.7, d: 5.4, top: 6.15, w: 5.6, color: 0xd7ecff },
-      { id: "b", x: 1.15, z: -14.15, d: 4.6, top: 7.45, w: 5, color: 0xffffff },
-      { id: "c", x: -1.2, z: -22.25, d: 4.6, top: 6.2, w: 4.8, color: 0xcdb4ff },
-      { id: "d", x: 0.2, z: -30.35, d: 4.8, top: 7.5, w: 4.4, color: 0xfff6ea },
-      { id: "e", x: 1.35, z: -38.5, d: 4.4, top: 6.3, w: 5, color: 0xb7d4ff, blink: { on: 2.6, off: 0.75 } },
-      { id: "f", x: -0.8, z: -46.4, d: 4.8, top: 7.5, w: 4.2, color: 0xffffff },
-      { id: "finish", x: 0, z: -55.3, d: 6.5, top: 8.3, w: 7, color: 0xfff3b0 },
-    ],
-    coins: [
-      { x: 0, y: 7.05, z: -5.7 },
-      { x: 1.15, y: 8.35, z: -14.15 },
-      { x: -1.2, y: 7.1, z: -22.25 },
-      { x: 0.2, y: 8.4, z: -30.35 },
-      { x: 1.35, y: 7.2, z: -38.5 },
-      { x: -0.8, y: 8.4, z: -46.4 },
-    ],
-    gems: [
-      { x: -2.3, y: 7.05, z: -22.25 },
-      { x: 2.5, y: 7.15, z: -38.5 },
-    ],
-    hills: [[-15, -6, 9], [16, -30, 11], [-13, -66, 10]],
-    mushrooms: [[-2.2, 7, 6.1], [2.2, 7, 6.3]],
-    trees: [[-5.2, 7, 3.4], [5.4, 6.15, -5.7]],
+    lanes: {
+      corto: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 7.5, top: 7, w: 7, color: 0xfff6ea },
+          { id: "a", x: 0, z: -5.7, d: 5.4, top: 6.15, w: 5.6, color: 0xd7ecff },
+          { id: "b", x: 1.15, z: -13.9, d: 4.6, top: 7.05, w: 5, color: 0xffffff },
+          { id: "c", x: -1.2, z: -22.25, d: 4.6, top: 6.2, w: 4.8, color: 0xcdb4ff },
+          { id: "d", x: 0.2, z: -30.05, d: 4.8, top: 7.1, w: 4.4, color: 0xfff6ea },
+          { id: "e", x: 1.35, z: -38.5, d: 4.4, top: 6.3, w: 5, color: 0xb7d4ff, blink: { on: 2.6, off: 0.75 } },
+          { id: "f", x: -0.8, z: -46.4, d: 4.8, top: 7.5, w: 4.2, color: 0xffffff },
+          { id: "finish", x: 0, z: -55.3, d: 6.5, top: 8.3, w: 7, color: 0xfff3b0 },
+        ],
+        coins: [
+          { x: 0, y: 7.05, z: -5.7 },
+          { x: 1.15, y: 7.95, z: -13.9 },
+          { x: -1.2, y: 7.1, z: -22.25 },
+          { x: 0.2, y: 8.0, z: -30.05 },
+          { x: 1.35, y: 7.2, z: -38.5 },
+          { x: -0.8, y: 8.4, z: -46.4 },
+        ],
+        gems: [
+          { x: -2.3, y: 7.05, z: -22.25 },
+          { x: 2.5, y: 7.15, z: -38.5 },
+        ],
+        hills: [[-15, -6, 9], [16, -30, 11], [-13, -66, 10]],
+        mushrooms: [[-2.2, 7, 6.1], [2.2, 7, 6.3]],
+        trees: [[-5.2, 7, 3.4], [5.4, 6.15, -5.7]],
+      },
+      normal: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 7, top: 7, w: 6.4, color: 0xfff6ea },
+          { id: "a", x: 0.4, z: -5.2, d: 4.8, top: 6.2, w: 5, color: 0xd7ecff },
+          { id: "b", x: -0.6, z: -13.25, d: 4.6, top: 7.3, w: 4.6, color: 0xffffff, blink: { on: 2.1, off: 0.8 } },
+          { id: "c", x: 0.8, z: -21.15, d: 4.6, top: 6.3, w: 4.6, color: 0xcdb4ff },
+          { id: "d", x: -0.5, z: -29.1, d: 4.6, top: 7.35, w: 4.4, color: 0xfff6ea, blink: { on: 2.0, off: 0.85 } },
+          { id: "e", x: 0.6, z: -37, d: 4.6, top: 6.4, w: 4.4, color: 0xb7d4ff },
+          { id: "f", x: -0.4, z: -45, d: 4.8, top: 7.4, w: 4.6, color: 0xffffff },
+          { id: "finish", x: 0, z: -53.9, d: 6.4, top: 8.2, w: 6.6, color: 0xfff3b0 },
+        ],
+        coins: [
+          { x: 0.4, y: 7.1, z: -5.2 },
+          { x: -0.6, y: 8.2, z: -13.25 },
+          { x: 0.8, y: 7.2, z: -21.15 },
+          { x: -0.5, y: 8.25, z: -29.1 },
+          { x: 0.6, y: 7.3, z: -37 },
+          { x: -0.4, y: 8.3, z: -45 },
+        ],
+        gems: [
+          { x: 1.4, y: 7.2, z: -21.15 },
+          { x: -1.2, y: 8.25, z: -29.1 },
+        ],
+        hills: [[-15, -4, 9], [16, -26, 11], [-13, -58, 10]],
+        mushrooms: [[-2.2, 7, 5.6], [2.1, 6.2, -5.2]],
+        trees: [[-5, 7, 3.2], [5.2, 6.2, -21.15]],
+      },
+      largo: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 6.6, top: 7, w: 6.2, color: 0xfff6ea },
+          { id: "a", x: 0.3, z: -5.05, d: 4.8, top: 6.2, w: 5, color: 0xd7ecff, blink: { on: 2.0, off: 0.85 } },
+          { id: "b", x: 0, z: -13.35, d: 5.2, top: 5.8, w: 6.2, color: 0xffffff, belt: 2.2 },
+          { id: "c", x: 0.4, z: -21.75, d: 5, top: 6.85, w: 6.4, color: 0xcdb4ff, slide: { axis: "x", amp: 0.7, period: 2.8, label: "Tabla", hint: "La tabla se mueve" } },
+          { id: "d", x: 0, z: -30.35, d: 5.6, top: 5.8, w: 6.6, color: 0xfff6ea, wheel: { len: 1.65, speed: 1.2 } },
+          { id: "e", x: 0.5, z: -38.8, d: 4.6, top: 6.85, w: 4.8, color: 0xb7d4ff, blink: { on: 1.9, off: 0.9 } },
+          { id: "f", x: 0, z: -47, d: 5.2, top: 5.9, w: 6.2, color: 0xffffff, belt: 2.4 },
+          { id: "g", x: 0.6, z: -55.3, d: 4.8, top: 6.9, w: 5, color: 0xcdb4ff },
+          { id: "finish", x: 0, z: -64.2, d: 6.4, top: 7.8, w: 6.6, color: 0xfff3b0 },
+        ],
+        coins: [
+          { x: 0.3, y: 7.1, z: -5.05 },
+          { x: 0, y: 6.7, z: -13.35 },
+          { x: 0.4, y: 7.75, z: -21.75 },
+          { x: 1.6, y: 6.7, z: -30.35 },
+          { x: 0.5, y: 7.75, z: -38.8 },
+          { x: 0, y: 6.8, z: -47 },
+          { x: 0.6, y: 7.8, z: -55.3 },
+        ],
+        gems: [
+          { x: 1.2, y: 7.75, z: -21.75 },
+          { x: -1.1, y: 7.75, z: -38.8 },
+        ],
+        hills: [[-14, -6, 9], [15, -28, 11], [-13, -54, 10]],
+        mushrooms: [[-2.1, 7, 5.4], [2.1, 6.2, -5.05]],
+        trees: [[-4.8, 7, 3.2], [4.8, 5.8, -30.35]],
+      },
+    },
   },
   {
     id: "fiesta",
@@ -225,31 +412,89 @@ const COURSES = [
     shade: "#d9568f",
     hill: 0xb7f0c8,
     wall: 0xf2d36b,
-    steps: [
-      { id: "start", x: 0, z: 4, d: 8, top: 6, w: 8, color: 0xffd6ea },
-      { id: "a", x: -2, z: -5.9, d: 6, top: 5.6, w: 6, color: 0xffb3d9 },
-      { id: "b", x: 1.8, z: -14.4, d: 6, top: 5.2, w: 6, color: 0xffe08a },
-      { id: "c", x: 0, z: -22.6, d: 4.6, top: 6.2, w: 4.4, color: 0xc4894a, slide: { axis: "z", amp: 0.8, period: 3.4, label: "Mesa", hint: "La mesa se mueve" } },
-      { id: "d", x: -1.8, z: -30.4, d: 6, top: 5.0, w: 6, color: 0xb8f0c8 },
-      { id: "e", x: 1.6, z: -38.4, d: 5, top: 6.0, w: 5.2, color: 0xcdb4ff },
-      { id: "f", x: -0.8, z: -46.4, d: 6, top: 5.0, w: 6, color: 0xffe08a },
-      { id: "finish", x: 0, z: -56.2, d: 8, top: 4.2, w: 8, color: 0xffd6ea },
-    ],
-    coins: [
-      { x: -2, y: 6.9, z: -5.9 },
-      { x: 1.8, y: 6.6, z: -14.4 },
-      { x: 0, y: 7.4, z: -22.6 },
-      { x: -1.8, y: 6.4, z: -30.4 },
-      { x: 1.6, y: 7.2, z: -38.4 },
-      { x: -0.8, y: 6.4, z: -46.4 },
-    ],
-    gems: [
-      { x: 1.6, y: 7.6, z: -22.6 },
-      { x: -1.4, y: 7.8, z: -46.4 },
-    ],
-    hills: [[-16, -20, 10], [18, -44, 12], [-14, -84, 11]],
-    mushrooms: [[-3.1, 6, 5.2], [3.1, 5.2, -14.4]],
-    trees: [[-4.6, 6, 6.2], [4.4, 5, -30.4]],
+    lanes: {
+      corto: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 8, top: 6, w: 8, color: 0xffd6ea },
+          { id: "a", x: -2, z: -5.9, d: 6, top: 5.6, w: 6, color: 0xffb3d9 },
+          { id: "b", x: 1.8, z: -14.4, d: 6, top: 5.2, w: 6, color: 0xffe08a },
+          { id: "c", x: 0, z: -22.6, d: 4.6, top: 6.2, w: 4.4, color: 0xc4894a, slide: { axis: "z", amp: 0.8, period: 3.4, label: "Mesa", hint: "La mesa se mueve" } },
+          { id: "d", x: -1.8, z: -30.4, d: 6, top: 5.0, w: 6, color: 0xb8f0c8 },
+          { id: "e", x: 1.6, z: -38.4, d: 5, top: 6.0, w: 5.2, color: 0xcdb4ff },
+          { id: "f", x: -0.8, z: -46.4, d: 6, top: 5.0, w: 6, color: 0xffe08a },
+          { id: "finish", x: 0, z: -56.2, d: 8, top: 4.2, w: 8, color: 0xffd6ea },
+        ],
+        coins: [
+          { x: -2, y: 6.9, z: -5.9 },
+          { x: 1.8, y: 6.6, z: -14.4 },
+          { x: 0, y: 7.4, z: -22.6 },
+          { x: -1.8, y: 6.4, z: -30.4 },
+          { x: 1.6, y: 7.2, z: -38.4 },
+          { x: -0.8, y: 6.4, z: -46.4 },
+        ],
+        gems: [
+          { x: 1.6, y: 7.6, z: -22.6 },
+          { x: -1.4, y: 7.8, z: -46.4 },
+        ],
+        hills: [[-16, -20, 10], [18, -44, 12], [-14, -84, 11]],
+        mushrooms: [[-3.1, 6, 5.2], [3.1, 5.2, -14.4]],
+        trees: [[-4.6, 6, 6.2], [4.4, 5, -30.4]],
+      },
+      normal: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 7.4, top: 6, w: 7, color: 0xffd6ea },
+          { id: "a", x: -1.6, z: -5.45, d: 5.2, top: 5.5, w: 5.2, color: 0xffb3d9 },
+          { id: "b", x: 1.5, z: -13.7, d: 5, top: 5.1, w: 5, color: 0xffe08a, slide: { axis: "z", amp: 0.4, period: 3.2, label: "Mesa", hint: "La mesa se mueve" } },
+          { id: "c", x: -1.2, z: -21.7, d: 4.8, top: 6.05, w: 4.6, color: 0xc4894a },
+          { id: "d", x: 1.3, z: -29.75, d: 5, top: 5.1, w: 5, color: 0xb8f0c8, slide: { axis: "z", amp: 0.28, period: 3, label: "Mesa", hint: "La mesa se mueve" } },
+          { id: "e", x: -1.1, z: -37.75, d: 4.8, top: 6.05, w: 4.8, color: 0xcdb4ff },
+          { id: "f", x: 0.6, z: -45.8, d: 5, top: 5.1, w: 5.2, color: 0xffe08a },
+          { id: "finish", x: 0, z: -55, d: 7.2, top: 4.3, w: 7.4, color: 0xffd6ea },
+        ],
+        coins: [
+          { x: -1.6, y: 6.4, z: -5.45 },
+          { x: 1.5, y: 6.0, z: -13.7 },
+          { x: -1.2, y: 6.95, z: -21.7 },
+          { x: 1.3, y: 6.0, z: -29.75 },
+          { x: -1.1, y: 6.95, z: -37.75 },
+          { x: 0.6, y: 6.0, z: -45.8 },
+        ],
+        gems: [
+          { x: 0.4, y: 6.95, z: -21.7 },
+          { x: 0.4, y: 6.0, z: -29.75 },
+        ],
+        hills: [[-15, -8, 9], [16, -32, 11], [-13, -60, 10]],
+        mushrooms: [[-2.8, 6, 5.4], [2.6, 5.5, -5.45]],
+        trees: [[-4.6, 6, 5.2], [4.4, 5.1, -29.75]],
+      },
+      largo: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 7, top: 6, w: 6.6, color: 0xffd6ea },
+          { id: "a", x: -1.2, z: -5.25, d: 5, top: 5.3, w: 5, color: 0xffb3d9, belt: 2.4 },
+          { id: "b", x: 1.1, z: -13.3, d: 4.8, top: 6.2, w: 5.2, color: 0xffe08a, slide: { axis: "z", amp: 0.4, period: 2.8, label: "Mesa", hint: "La mesa se mueve" } },
+          { id: "c", x: 0, z: -21.7, d: 5.6, top: 5.1, w: 6.4, color: 0xc4894a, wheel: { len: 1.65, speed: 1.2 } },
+          { id: "d", x: -1, z: -30, d: 4.6, top: 6.1, w: 4.8, color: 0xb8f0c8, blink: { on: 2.0, off: 0.85 } },
+          { id: "e", x: 1.1, z: -37.85, d: 4.8, top: 5.2, w: 5, color: 0xcdb4ff, slide: { axis: "z", amp: 0.3, period: 2.7, label: "Mesa", hint: "La mesa se mueve" } },
+          { id: "f", x: 0, z: -45.75, d: 5.2, top: 6.15, w: 6.2, color: 0xffe08a, belt: 2.6 },
+          { id: "finish", x: 0, z: -55.5, d: 7.4, top: 4.4, w: 7.2, color: 0xffd6ea },
+        ],
+        coins: [
+          { x: -1.2, y: 6.2, z: -5.25 },
+          { x: 1.1, y: 7.1, z: -13.3 },
+          { x: 1.5, y: 6.0, z: -21.7 },
+          { x: -1, y: 7.0, z: -30 },
+          { x: 1.1, y: 6.1, z: -37.85 },
+          { x: 0, y: 7.05, z: -45.75 },
+        ],
+        gems: [
+          { x: -1.2, y: 7.0, z: -30 },
+          { x: 1.6, y: 6.1, z: -37.85 },
+        ],
+        hills: [[-14, -8, 9], [16, -30, 11], [-13, -58, 10]],
+        mushrooms: [[-2.6, 6, 5.2], [2.4, 5.3, -5.25]],
+        trees: [[-4.4, 6, 4.8], [4.6, 5.1, -21.7]],
+      },
+    },
   },
   {
     id: "globo",
@@ -260,34 +505,109 @@ const COURSES = [
     shade: "#1f8c96",
     hill: 0xb7f0c8,
     wall: 0xffffff,
-    steps: [
-      { id: "start", x: 0, z: 4, d: 8, top: 6, w: 7.5, color: 0xc5f2f5 },
-      { id: "a", x: 0, z: -6, d: 6, top: 5.6, w: 6, color: 0x9fe3ea },
-      { id: "b", x: 0, z: -14.8, d: 6, top: 5.2, w: 9, color: 0x7ed6dc, belt: -2 },
-      { id: "c", x: -3, z: -22, d: 4.8, top: 6.2, w: 5, color: 0xffffff },
-      { id: "d", x: 3, z: -29.6, d: 5, top: 6.4, w: 5, color: 0xfff6ea },
-      { id: "e", x: 0, z: -37.2, d: 5, top: 7.0, w: 5.2, color: 0xb7f0c8 },
-      { id: "finish", x: 0, z: -46.4, d: 8, top: 4.8, w: 9, color: 0xffe08a },
-    ],
-    coins: [
-      { x: 0, y: 6.9, z: -6 },
-      { x: 2, y: 6.6, z: -14.8 },
-      { x: -3, y: 7.3, z: -22 },
-      { x: 3, y: 7.7, z: -29.6 },
-      { x: 0, y: 8, z: -37.2 },
-    ],
-    gems: [
-      { x: 0.8, y: 7.9, z: -37.2 },
-      { x: -3, y: 8, z: -22 },
-    ],
-    hills: [[-16, -10, 9], [16, -34, 12], [-14, -70, 10]],
-    mushrooms: [[-2.5, 5.6, -6], [2.6, 5.2, -14.8]],
-    trees: [[5.4, 6, -6], [-5.4, 6.4, -29.6]],
+    lanes: {
+      corto: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 8, top: 6, w: 7.5, color: 0xc5f2f5 },
+          { id: "a", x: 0, z: -6, d: 6, top: 5.6, w: 6, color: 0x9fe3ea },
+          { id: "b", x: 0, z: -14.8, d: 6, top: 5.2, w: 9, color: 0x7ed6dc, belt: -2 },
+          { id: "c", x: -3, z: -22, d: 4.8, top: 6.2, w: 5, color: 0xffffff },
+          { id: "d", x: 3, z: -29.6, d: 5, top: 6.4, w: 5, color: 0xfff6ea },
+          { id: "e", x: 0, z: -37.2, d: 5, top: 7.0, w: 5.2, color: 0xb7f0c8 },
+          { id: "finish", x: 0, z: -46.4, d: 8, top: 4.8, w: 9, color: 0xffe08a },
+        ],
+        coins: [
+          { x: 0, y: 6.9, z: -6 },
+          { x: 2, y: 6.6, z: -14.8 },
+          { x: -3, y: 7.3, z: -22 },
+          { x: 3, y: 7.7, z: -29.6 },
+          { x: 0, y: 8, z: -37.2 },
+        ],
+        gems: [
+          { x: 0.8, y: 7.9, z: -37.2 },
+          { x: -3, y: 8, z: -22 },
+        ],
+        hills: [[-16, -10, 9], [16, -34, 12], [-14, -70, 10]],
+        mushrooms: [[-2.5, 5.6, -6], [2.6, 5.2, -14.8]],
+        trees: [[5.4, 6, -6], [-5.4, 6.4, -29.6]],
+      },
+      normal: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 7.2, top: 6, w: 6.6, color: 0xc5f2f5 },
+          { id: "a", x: 0, z: -5.4, d: 5.2, top: 5.5, w: 5.4, color: 0x9fe3ea },
+          { id: "b", x: 0, z: -13.9, d: 5.4, top: 5.1, w: 8, color: 0x7ed6dc, belt: -2.6 },
+          { id: "c", x: -2.8, z: -22.05, d: 4.6, top: 6.1, w: 4.6, color: 0xffffff },
+          { id: "d", x: 2.6, z: -29.8, d: 4.6, top: 6.2, w: 4.6, color: 0xfff6ea },
+          { id: "e", x: 0, z: -37.75, d: 5, top: 6.9, w: 5.4, color: 0xb7f0c8, belt: -2.2 },
+          { id: "f", x: -2.4, z: -45.65, d: 4.6, top: 6.0, w: 4.8, color: 0x9fe3ea },
+          { id: "finish", x: 0, z: -54.8, d: 7.4, top: 4.6, w: 8, color: 0xffe08a },
+        ],
+        coins: [
+          { x: 0, y: 6.4, z: -5.4 },
+          { x: -1.6, y: 6.0, z: -13.9 },
+          { x: -2.8, y: 7.0, z: -22.05 },
+          { x: 2.6, y: 7.1, z: -29.8 },
+          { x: -1.2, y: 7.8, z: -37.75 },
+          { x: -2.4, y: 6.9, z: -45.65 },
+        ],
+        gems: [
+          { x: -1.6, y: 7.0, z: -22.05 },
+          { x: 1.4, y: 7.1, z: -29.8 },
+        ],
+        hills: [[-15, -8, 9], [16, -30, 12], [-13, -60, 10]],
+        mushrooms: [[-2.4, 6, 5.4], [2.4, 5.5, -5.4]],
+        trees: [[5.2, 6, -5.4], [-5.2, 6.1, -29.8]],
+      },
+      largo: {
+        steps: [
+          { id: "start", x: 0, z: 4, d: 7, top: 6, w: 6.4, color: 0xc5f2f5 },
+          { id: "a", x: 0, z: -5.4, d: 5.2, top: 5.3, w: 6.6, color: 0x7ed6dc, belt: -2.8 },
+          { id: "b", x: -2.6, z: -13.5, d: 4.6, top: 6.2, w: 4.8, color: 0xffffff, blink: { on: 2.0, off: 0.85 } },
+          { id: "c", x: 0, z: -21.85, d: 5.6, top: 5.1, w: 6.6, color: 0xfff6ea, wheel: { len: 1.7, speed: 1.25 } },
+          { id: "d", x: 2.2, z: -30.3, d: 4.8, top: 6.15, w: 5.2, color: 0xb7f0c8, slide: { axis: "x", amp: 0.8, period: 2.7, label: "Tabla", hint: "La tabla se mueve" } },
+          { id: "e", x: 0, z: -38.5, d: 5.2, top: 5.2, w: 7, color: 0x9fe3ea, belt: 2.4 },
+          { id: "f", x: 2.2, z: -46.6, d: 4.6, top: 6.2, w: 4.8, color: 0xffffff },
+          { id: "finish", x: 0, z: -55.7, d: 7.2, top: 4.7, w: 8, color: 0xffe08a },
+        ],
+        coins: [
+          { x: -1.4, y: 6.2, z: -5.4 },
+          { x: -2.6, y: 7.1, z: -13.5 },
+          { x: 1.6, y: 6.0, z: -21.85 },
+          { x: 2.2, y: 7.05, z: -30.3 },
+          { x: 1.4, y: 6.1, z: -38.5 },
+          { x: 2.2, y: 7.1, z: -46.6 },
+        ],
+        gems: [
+          { x: -1.4, y: 7.1, z: -13.5 },
+          { x: 1.2, y: 7.05, z: -30.3 },
+        ],
+        hills: [[-14, -8, 9], [16, -28, 11], [-13, -58, 10]],
+        mushrooms: [[-2.3, 6, 5.2], [2.4, 5.3, -5.4]],
+        trees: [[5, 6, -5.4], [-5, 5.1, -21.85]],
+      },
+    },
   },
 ];
 
+const LANE_IDS = ["corto", "normal", "largo"];
+const LANE_NAME = { corto: "Fácil", normal: "Normal", largo: "Difícil" };
+
 function emptyBadges() {
   return Object.fromEntries(COURSES.map((c) => [c.id, false]));
+}
+function emptyPaths() {
+  const paths = {};
+  for (const course of COURSES) {
+    if (!course.lanes) continue;
+    paths[course.id] = { corto: false, normal: false, largo: false };
+  }
+  return paths;
+}
+function playableCourse(id, lane) {
+  const def = COURSES.find((item) => item.id === id);
+  if (!def.lanes) return def;
+  const key = def.lanes[lane] ? lane : "normal";
+  return { ...def, ...def.lanes[key], lane: key };
 }
 function keep(value, options, fallback) {
   return options.includes(value) ? value : fallback;
@@ -297,6 +617,7 @@ function knownIds(slot) {
 }
 function loadSave() {
   const badges = emptyBadges();
+  const paths = emptyPaths();
   const owned = { ropa: [], accesorio: [], hat: [], pet: [], trail: [] };
   const gear = { hat: null, pet: null, trail: null };
   try {
@@ -319,27 +640,36 @@ function loadSave() {
     if (raw.badges) {
       for (const id of Object.keys(badges)) badges[id] = !!raw.badges[id];
     }
+    for (const id of Object.keys(paths)) {
+      const savedPaths = raw.paths?.[id];
+      if (savedPaths && typeof savedPaths === "object") {
+        for (const lane of Object.keys(paths[id])) paths[id][lane] = !!savedPaths[lane];
+      } else if (badges[id]) {
+        paths[id].corto = true;
+      }
+    }
     for (const slot of Object.keys(owned)) {
       const ids = knownIds(slot);
       const list = Array.isArray(raw.owned?.[slot]) ? raw.owned[slot] : [];
       owned[slot] = list.filter((id) => ids.has(id));
       if (ids.has(raw.gear?.[slot]) && owned[slot].includes(raw.gear[slot])) gear[slot] = raw.gear[slot];
     }
-    return { look, coins, gems, badges, owned, gear };
+    return { look, coins, gems, badges, owned, gear, paths };
   } catch {
-    return { look: { ...DEFAULT_LOOK }, coins: 0, gems: 0, badges, owned, gear };
+    return { look: { ...DEFAULT_LOOK }, coins: 0, gems: 0, badges, owned, gear, paths: emptyPaths() };
   }
 }
 const saved = loadSave();
 let avatar = saved.look;
 const wallet = { coins: saved.coins, gems: saved.gems };
 const badges = saved.badges;
+const paths = saved.paths;
 const owned = saved.owned;
 const gear = saved.gear;
 let course = null;
 
 function persist() {
-  localStorage.setItem(SAVE_KEY, JSON.stringify({ look: avatar, coins: wallet.coins, gems: wallet.gems, badges, owned, gear }));
+  localStorage.setItem(SAVE_KEY, JSON.stringify({ look: avatar, coins: wallet.coins, gems: wallet.gems, badges, paths, owned, gear }));
 }
 
 function showProgress() {
@@ -349,7 +679,12 @@ function showProgress() {
     const mark = btn.querySelector("small");
     if (mark) mark.textContent = badges[btn.dataset.course] ? "★ Insignia" : "☆";
   }
-  for (const [id, star] of Object.entries(portalStars)) star.visible = !!badges[id];
+  for (const [id, stars] of Object.entries(portalStars)) {
+    const def = COURSES.find((item) => item.id === id);
+    stars.forEach((star, i) => {
+      star.visible = def.lanes ? !!paths[id]?.[LANE_IDS[i]] : !!badges[id];
+    });
+  }
   paintBoard();
 }
 
@@ -832,12 +1167,17 @@ function buildPortal(def, x, z) {
   const sign = makeSign(def.name, def.tint);
   sign.position.set(x, 9.15, z);
   plazaRoot.add(sign);
-  const star = starMesh();
-  star.scale.setScalar(0.35);
-  star.position.set(x, 9.9, z);
-  star.visible = !!badges[def.id];
-  plazaRoot.add(star);
-  portalStars[def.id] = star;
+  const marks = def.lanes
+    ? LANE_IDS.map((lane, i) => ({ lane, x: x + (i - 1) * 0.5, y: 9.92, scale: 0.2 }))
+    : [{ x, y: 9.9, scale: 0.35, badge: true }];
+  portalStars[def.id] = marks.map((mark) => {
+    const star = starMesh();
+    star.scale.setScalar(mark.scale);
+    star.position.set(mark.x, mark.y, z);
+    star.visible = mark.badge ? !!badges[def.id] : !!paths[def.id]?.[mark.lane];
+    plazaRoot.add(star);
+    return star;
+  });
 }
 
 function buildStall(x, z, label, bg) {
@@ -2378,14 +2718,20 @@ function step(dt, time) {
     finishT += dt;
     if (finishT > 1.15) {
       state = "win";
+      const lane = course.lane || "normal";
+      const freshStar = !!(course.lanes && paths[course.id] && !paths[course.id][lane]);
+      if (freshStar) paths[course.id][lane] = true;
       const fresh = !badges[course.id];
       if (fresh) badges[course.id] = true;
       persist();
       showProgress();
       winTitle.textContent = course.winTitle;
+      const purse = `Llevas ${wallet.coins} monedas y ${wallet.gems} gemas.`;
       winText.textContent = fresh
-        ? `Insignia nueva. Llevas ${wallet.coins} monedas y ${wallet.gems} gemas.`
-        : `Llevas ${wallet.coins} monedas y ${wallet.gems} gemas.`;
+        ? `Insignia nueva. ${purse}`
+        : freshStar
+          ? `Estrella de ${LANE_NAME[lane]}. ${purse}`
+          : purse;
       winCard.hidden = false;
       hintEl.hidden = true;
       winSound();
@@ -2748,11 +3094,11 @@ function goHome() {
   showProgress();
 }
 
-function startGame(id) {
+function startGame(id, lane) {
   audio();
   danceT = 0;
   setDressStudio(false);
-  course = COURSES.find((item) => item.id === id);
+  course = playableCourse(id, lane);
   buildCourse(course);
   homeEl.hidden = true;
   dresserEl.hidden = true;
@@ -2768,6 +3114,38 @@ function startGame(id) {
 
 let gateId = null;
 
+function paintGateLanes(def) {
+  gateLanes.textContent = "";
+  if (!def.lanes) {
+    gateLanes.hidden = true;
+    gatePlayBtn.hidden = false;
+    return;
+  }
+  gatePlayBtn.hidden = true;
+  gateLanes.hidden = false;
+  for (const lane of LANE_IDS) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.dataset.lane = lane;
+    btn.textContent = LANE_NAME[lane];
+    if (paths[def.id]?.[lane]) {
+      const star = document.createElement("span");
+      star.className = "lane-star";
+      star.textContent = "★";
+      star.setAttribute("aria-hidden", "true");
+      btn.append(star);
+      btn.setAttribute("aria-label", `${LANE_NAME[lane]}, con estrella`);
+    }
+    btn.addEventListener("click", () => {
+      btn.blur();
+      const id = gateId;
+      gateEl.hidden = true;
+      startGame(id, lane);
+    });
+    gateLanes.append(btn);
+  }
+}
+
 function openGate(id) {
   const def = COURSES.find((item) => item.id === id);
   gateId = id;
@@ -2779,6 +3157,7 @@ function openGate(id) {
   gateEl.style.setProperty("--tint", def.tint);
   gateEl.style.setProperty("--shade", def.shade);
   gateBadge.hidden = !badges[def.id];
+  paintGateLanes(def);
   gateEl.hidden = false;
   hintEl.hidden = true;
 }
