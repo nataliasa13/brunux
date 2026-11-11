@@ -18,7 +18,9 @@ html, body {
   font-family: Fredoka, "Trebuchet MS", "Avenir Next", sans-serif;
   color: var(--ink);
   touch-action: none;
+  -webkit-user-select: none;
   user-select: none;
+  -webkit-touch-callout: none;
 }
 
 #view, #view canvas {
@@ -150,6 +152,10 @@ button {
   font-weight: 700;
 }
 .lang button.on { background: var(--lilac); }
+
+body:has(#shop:not([hidden]), #dresser:not([hidden]), #gate:not([hidden]), #board-card:not([hidden]), #win:not([hidden])) #lang {
+  display: none;
+}
 #dance.on { background: var(--lilac); }
 
 .label-btn {
@@ -1480,32 +1486,125 @@ button {
   bottom: 0.6rem;
   padding: 0 0.8rem calc(0.4rem + env(safe-area-inset-bottom));
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: stretch;
   pointer-events: none;
 }
 
-#touch button { pointer-events: auto; }
+#touch button {
+  pointer-events: auto;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
 
-.pad { display: flex; gap: 0.35rem; align-items: center; }
+.pad {
+  --arm: 3.45rem;
+  --reach: 3.55rem;
+  position: relative;
+  width: 9.6rem;
+  height: 9.6rem;
+  flex: 0 0 auto;
+}
 
-.nudge { display: flex; flex-direction: column; gap: 0.28rem; }
+.cross {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 0 #d84d32);
+}
 
-.nudge button { min-height: 2.1rem; }
+.cross span {
+  position: absolute;
+  background: var(--coral);
+  border-radius: 1.35rem;
+}
 
-.pad button, .jump {
-  min-width: 3.5rem;
-  min-height: 3.5rem;
-  padding: 0.3rem 1rem;
-  font-size: 1.15rem;
+.cross span:first-child {
+  width: var(--arm);
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cross span:last-child {
+  height: var(--arm);
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pad button {
+  position: absolute;
+  z-index: 1;
+  width: var(--arm);
+  height: var(--reach);
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: #fff;
+  box-shadow: none;
+  border-radius: 1.3rem;
+  display: grid;
+  place-items: center;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.pad button:active {
+  transform: none;
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: none;
+}
+
+.pad [data-hold="forward"],
+.pad [data-hold="back"] { left: calc(50% - var(--arm) / 2); }
+.pad [data-hold="forward"] { top: 0; border-radius: 1.35rem 1.35rem 0.7rem 0.7rem; }
+.pad [data-hold="back"] { bottom: 0; border-radius: 0.7rem 0.7rem 1.35rem 1.35rem; }
+
+.pad [data-hold="left"],
+.pad [data-hold="right"] {
+  width: var(--reach);
+  height: var(--arm);
+  top: calc(50% - var(--arm) / 2);
+}
+.pad [data-hold="left"] { left: 0; border-radius: 1.35rem 0.7rem 0.7rem 1.35rem; }
+.pad [data-hold="right"] { right: 0; border-radius: 0.7rem 1.35rem 1.35rem 0.7rem; }
+
+.pad .arrow {
+  width: 1.7rem;
+  height: 1.7rem;
+  display: block;
+}
+
+.pad [data-hold="right"] .arrow { transform: rotate(90deg); }
+.pad [data-hold="back"] .arrow { transform: rotate(180deg); }
+.pad [data-hold="left"] .arrow { transform: rotate(-90deg); }
+
+.jump {
+  align-self: center;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 7.6rem;
+  height: 7.6rem;
+  min-width: 7.6rem;
+  min-height: 7.6rem;
+  padding: 0;
+  font-size: 1.2rem;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 @media (pointer: coarse), (max-width: 800px) {
   body.playing #touch { display: flex; }
   body.playing #hint {
-    bottom: calc(9.2rem + env(safe-area-inset-bottom));
-    max-width: min(18rem, calc(100vw - 11rem));
+    bottom: calc(11.2rem + env(safe-area-inset-bottom));
+    max-width: min(16rem, calc(100vw - 2rem));
   }
-  body.playing #card { bottom: calc(9.2rem + env(safe-area-inset-bottom)); }
+  body.playing #card { bottom: calc(11.2rem + env(safe-area-inset-bottom)); }
 }
 
 .err {

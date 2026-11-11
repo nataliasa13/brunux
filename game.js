@@ -228,22 +228,22 @@ const COURSES = [
       corto: {
         steps: [
           { id: "start", x: 0, z: 4, d: 8, top: 6, w: 7.2, color: 0xd7a85a },
-          { id: "a", x: 2.45, z: -5.8, d: 5.2, top: 5.5, w: 4.2, color: 0xc4894a },
-          { id: "b", x: -2.45, z: -14.15, d: 5, top: 5.1, w: 4.2, color: 0xe7c98a },
-          { id: "c", x: 2.4, z: -22.3, d: 4.6, top: 6.2, w: 4, color: 0xc46b4a, slide: { axis: "x", amp: 0.75, period: 3.2 } },
-          { id: "d", x: -2.2, z: -30.4, d: 5.2, top: 5.25, w: 4.2, color: 0xd7a85a },
-          { id: "e", x: 2.1, z: -38.6, d: 4.4, top: 6.45, w: 3.8, color: 0xf0d7a2 },
+          { id: "a", x: 0, z: -5.8, d: 5.2, top: 5.5, w: 4.2, color: 0xc4894a },
+          { id: "b", x: 0, z: -14.15, d: 5, top: 5.1, w: 4.2, color: 0xe7c98a },
+          { id: "c", x: 0, z: -22.3, d: 4.6, top: 6.2, w: 4, color: 0xc46b4a, slide: { axis: "x", amp: 0.75, period: 3.2 } },
+          { id: "d", x: 0, z: -30.4, d: 5.2, top: 5.25, w: 4.2, color: 0xd7a85a },
+          { id: "e", x: 0, z: -38.6, d: 4.4, top: 6.45, w: 3.8, color: 0xf0d7a2 },
           { id: "finish", x: 0, z: -47.05, d: 6, top: 4.6, w: 6.5, color: 0xc4894a },
         ],
         coins: [
-          { x: 2.45, y: 6.4, z: -5.8 },
-          { x: -2.45, y: 6.0, z: -14.15 },
-          { x: 2.4, y: 7.1, z: -22.3 },
-          { x: -2.2, y: 6.15, z: -30.4 },
-          { x: 2.1, y: 7.35, z: -38.6 },
+          { x: 0, y: 6.4, z: -5.8 },
+          { x: 0, y: 6.0, z: -14.15 },
+          { x: 0, y: 7.1, z: -22.3 },
+          { x: 0, y: 6.15, z: -30.4 },
+          { x: 0, y: 7.35, z: -38.6 },
         ],
         gems: [
-          { x: -3.3, y: 6.0, z: -14.15 },
+          { x: -1.2, y: 6.0, z: -14.15 },
           { x: -1.15, y: 6.15, z: -30.4 },
         ],
         hills: [[-14, -8, 9], [16, -28, 12], [-12, -58, 10]],
@@ -322,24 +322,24 @@ const COURSES = [
         steps: [
           { id: "start", x: 0, z: 4, d: 7.5, top: 7, w: 7, color: 0xfff6ea },
           { id: "a", x: 0, z: -5.7, d: 5.4, top: 6.15, w: 5.6, color: 0xd7ecff },
-          { id: "b", x: 1.15, z: -13.9, d: 4.6, top: 7.05, w: 5, color: 0xffffff },
-          { id: "c", x: -1.2, z: -22.25, d: 4.6, top: 6.2, w: 4.8, color: 0xcdb4ff },
-          { id: "d", x: 0.2, z: -30.05, d: 4.8, top: 7.1, w: 4.4, color: 0xfff6ea },
-          { id: "e", x: 1.35, z: -38.5, d: 4.4, top: 6.3, w: 5, color: 0xb7d4ff, blink: { on: 2.6, off: 0.75 } },
-          { id: "f", x: -0.8, z: -46.4, d: 4.8, top: 7.5, w: 4.2, color: 0xffffff },
+          { id: "b", x: 0, z: -13.9, d: 4.6, top: 7.05, w: 5, color: 0xffffff },
+          { id: "c", x: 0, z: -22.25, d: 4.6, top: 6.2, w: 4.8, color: 0xcdb4ff },
+          { id: "d", x: 0, z: -30.05, d: 4.8, top: 7.1, w: 4.4, color: 0xfff6ea },
+          { id: "e", x: 0, z: -38.5, d: 4.4, top: 6.3, w: 5, color: 0xb7d4ff, blink: { on: 2.6, off: 0.75 } },
+          { id: "f", x: 0, z: -46.4, d: 4.8, top: 7.5, w: 4.2, color: 0xffffff },
           { id: "finish", x: 0, z: -55.3, d: 6.5, top: 8.3, w: 7, color: 0xfff3b0 },
         ],
         coins: [
           { x: 0, y: 7.05, z: -5.7 },
-          { x: 1.15, y: 7.95, z: -13.9 },
-          { x: -1.2, y: 7.1, z: -22.25 },
-          { x: 0.2, y: 8.0, z: -30.05 },
-          { x: 1.35, y: 7.2, z: -38.5 },
-          { x: -0.8, y: 8.4, z: -46.4 },
+          { x: 0, y: 7.95, z: -13.9 },
+          { x: 0, y: 7.1, z: -22.25 },
+          { x: 0, y: 8.0, z: -30.05 },
+          { x: 0, y: 7.2, z: -38.5 },
+          { x: 0, y: 8.4, z: -46.4 },
         ],
         gems: [
-          { x: -2.3, y: 7.05, z: -22.25 },
-          { x: 2.5, y: 7.15, z: -38.5 },
+          { x: -1.5, y: 7.05, z: -22.25 },
+          { x: 1.5, y: 7.15, z: -38.5 },
         ],
         hills: [[-15, -6, 9], [16, -30, 11], [-13, -66, 10]],
         mushrooms: [[-2.2, 7, 6.1], [2.2, 7, 6.3]],
@@ -416,28 +416,28 @@ const COURSES = [
       corto: {
         steps: [
           { id: "start", x: 0, z: 4, d: 8, top: 6, w: 8, color: 0xffd6ea },
-          { id: "a", x: -2, z: -5.9, d: 6, top: 5.6, w: 6, color: 0xffb3d9 },
-          { id: "b", x: 1.8, z: -14.4, d: 6, top: 5.2, w: 6, color: 0xffe08a },
+          { id: "a", x: 0, z: -5.9, d: 6, top: 5.6, w: 6, color: 0xffb3d9 },
+          { id: "b", x: 0, z: -14.4, d: 6, top: 5.2, w: 6, color: 0xffe08a },
           { id: "c", x: 0, z: -22.6, d: 4.6, top: 6.2, w: 4.4, color: 0xc4894a, slide: { axis: "z", amp: 0.8, period: 3.4, label: "Mesa", hint: "La mesa se mueve" } },
-          { id: "d", x: -1.8, z: -30.4, d: 6, top: 5.0, w: 6, color: 0xb8f0c8 },
-          { id: "e", x: 1.6, z: -38.4, d: 5, top: 6.0, w: 5.2, color: 0xcdb4ff },
-          { id: "f", x: -0.8, z: -46.4, d: 6, top: 5.0, w: 6, color: 0xffe08a },
+          { id: "d", x: 0, z: -30.4, d: 6, top: 5.0, w: 6, color: 0xb8f0c8 },
+          { id: "e", x: 0, z: -38.4, d: 5, top: 6.0, w: 5.2, color: 0xcdb4ff },
+          { id: "f", x: 0, z: -46.4, d: 6, top: 5.0, w: 6, color: 0xffe08a },
           { id: "finish", x: 0, z: -56.2, d: 8, top: 4.2, w: 8, color: 0xffd6ea },
         ],
         coins: [
-          { x: -2, y: 6.9, z: -5.9 },
-          { x: 1.8, y: 6.6, z: -14.4 },
+          { x: 0, y: 6.9, z: -5.9 },
+          { x: 0, y: 6.6, z: -14.4 },
           { x: 0, y: 7.4, z: -22.6 },
-          { x: -1.8, y: 6.4, z: -30.4 },
-          { x: 1.6, y: 7.2, z: -38.4 },
-          { x: -0.8, y: 6.4, z: -46.4 },
+          { x: 0, y: 6.4, z: -30.4 },
+          { x: 0, y: 7.2, z: -38.4 },
+          { x: 0, y: 6.4, z: -46.4 },
         ],
         gems: [
           { x: 1.6, y: 7.6, z: -22.6 },
           { x: -1.4, y: 7.8, z: -46.4 },
         ],
         hills: [[-16, -20, 10], [18, -44, 12], [-14, -84, 11]],
-        mushrooms: [[-3.1, 6, 5.2], [3.1, 5.2, -14.4]],
+        mushrooms: [[-3.1, 6, 5.2], [2.2, 5.2, -14.4]],
         trees: [[-4.6, 6, 6.2], [4.4, 5, -30.4]],
       },
       normal: {
@@ -510,22 +510,22 @@ const COURSES = [
         steps: [
           { id: "start", x: 0, z: 4, d: 8, top: 6, w: 7.5, color: 0xc5f2f5 },
           { id: "a", x: 0, z: -6, d: 6, top: 5.6, w: 6, color: 0x9fe3ea },
-          { id: "b", x: 0, z: -14.8, d: 6, top: 5.2, w: 9, color: 0x7ed6dc, belt: -2 },
-          { id: "c", x: -3, z: -22, d: 4.8, top: 6.2, w: 5, color: 0xffffff },
-          { id: "d", x: 3, z: -29.6, d: 5, top: 6.4, w: 5, color: 0xfff6ea },
+          { id: "b", x: 0, z: -14.8, d: 6, top: 5.2, w: 9, color: 0x7ed6dc },
+          { id: "c", x: 0, z: -22, d: 4.8, top: 6.2, w: 5, color: 0xffffff },
+          { id: "d", x: 0, z: -29.6, d: 5, top: 6.4, w: 5, color: 0xfff6ea },
           { id: "e", x: 0, z: -37.2, d: 5, top: 7.0, w: 5.2, color: 0xb7f0c8 },
           { id: "finish", x: 0, z: -46.4, d: 8, top: 4.8, w: 9, color: 0xffe08a },
         ],
         coins: [
           { x: 0, y: 6.9, z: -6 },
-          { x: 2, y: 6.6, z: -14.8 },
-          { x: -3, y: 7.3, z: -22 },
-          { x: 3, y: 7.7, z: -29.6 },
+          { x: 0, y: 6.6, z: -14.8 },
+          { x: 0, y: 7.3, z: -22 },
+          { x: 0, y: 7.7, z: -29.6 },
           { x: 0, y: 8, z: -37.2 },
         ],
         gems: [
           { x: 0.8, y: 7.9, z: -37.2 },
-          { x: -3, y: 8, z: -22 },
+          { x: -1.4, y: 8, z: -22 },
         ],
         hills: [[-16, -10, 9], [16, -34, 12], [-14, -70, 10]],
         mushrooms: [[-2.5, 5.6, -6], [2.6, 5.2, -14.8]],
@@ -618,6 +618,7 @@ const STR = {
     "hint.table": "La mesa se mueve",
     "hint.poof": "¡Se esfuma!",
     "hint.jump": "Espacio para saltar",
+    "hint.tap": "Pulsa JUMP",
     "sign.belt": "Cinta",
     "sign.wheel": "Rueda",
     "sign.plank": "Tabla",
@@ -744,6 +745,7 @@ const STR = {
     "hint.table": "The table moves",
     "hint.poof": "It vanishes!",
     "hint.jump": "Space to jump",
+    "hint.tap": "Tap JUMP",
     "sign.belt": "Belt",
     "sign.wheel": "Wheel",
     "sign.plank": "Plank",
@@ -976,6 +978,13 @@ function scanSpots() {
 const keys = new Set();
 const touch = { left: false, right: false, forward: false, back: false };
 let jumpEdge = false;
+let jumpFromTouch = false;
+let jumpBufferTouch = false;
+let lastMoveX = 0;
+let lastMoveZ = -RUN;
+let airX = 0;
+let airZ = 0;
+let airCarry = false;
 let muted = false;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -2685,6 +2694,7 @@ function resetRun(fromWin) {
   introTimer = 0;
   cooldown = 0;
   didJump = false;
+  airCarry = false;
   visited.clear();
   checkpoint = { id: "start", x: start.x, y: start.top, z: start.z };
   kid.rotation.y = Math.PI;
@@ -2992,8 +3002,12 @@ function step(dt, time) {
     forward: keys.has("arrowup") || keys.has("w") || touch.forward,
     back: keys.has("arrowdown") || keys.has("s") || touch.back,
   };
-  if (jumpEdge) jumpBuffer = 0.14;
-  jumpEdge = false;
+  if (jumpEdge) {
+    jumpBuffer = 0.14;
+    jumpBufferTouch = jumpFromTouch;
+    jumpEdge = false;
+    jumpFromTouch = false;
+  }
 
   cooldown = Math.max(0, cooldown - dt);
   player.shrinkT = Math.max(0, player.shrinkT - dt);
@@ -3034,12 +3048,18 @@ function step(dt, time) {
   player.vel.x = 0;
   player.vel.z = 0;
   if (state === "play") hitWheels();
-  if (danceT > 0) jumpBuffer = 0;
-  else {
+  if (danceT > 0) {
+    jumpBuffer = 0;
+    jumpBufferTouch = false;
+    airCarry = false;
+  } else {
     if (pressed.left) player.vel.x -= RUN;
     if (pressed.right) player.vel.x += RUN;
     if (pressed.forward) player.vel.z -= RUN;
     if (pressed.back) player.vel.z += RUN;
+    if (pressed.left !== pressed.right) lastMoveX = player.vel.x;
+    if (pressed.forward !== pressed.back) lastMoveZ = player.vel.z;
+    if ((pressed.forward || pressed.back) && !pressed.left && !pressed.right) lastMoveX = 0;
   }
 
   pushCool = Math.max(0, pushCool - dt);
@@ -3049,17 +3069,43 @@ function step(dt, time) {
     player.vel.z = pushV.z;
   }
 
-  if (player.onGround) coyote = 0.12;
-  else coyote = Math.max(0, coyote - dt);
+  if (player.onGround) {
+    coyote = 0.12;
+    airCarry = false;
+  } else {
+    coyote = Math.max(0, coyote - dt);
+    if (airCarry && pushT <= 0) {
+      player.vel.x = airX;
+      player.vel.z = airZ;
+    }
+  }
   jumpBuffer = Math.max(0, jumpBuffer - dt);
   if (jumpBuffer > 0 && coyote > 0) {
+    if (jumpBufferTouch && pushT <= 0) {
+      const xHeld = pressed.left || pressed.right;
+      const zHeld = pressed.forward || pressed.back;
+      if (!xHeld && !zHeld) {
+        player.vel.x = lastMoveX;
+        player.vel.z = lastMoveZ;
+      } else if (xHeld && !zHeld) {
+        player.vel.z = lastMoveZ;
+      } else if (zHeld && !xHeld) {
+        player.vel.x = 0;
+      }
+      airX = player.vel.x;
+      airZ = player.vel.z;
+      airCarry = true;
+    }
     player.vel.y = JUMP_V;
     player.onGround = false;
     coyote = 0;
     jumpBuffer = 0;
+    jumpBufferTouch = false;
     didJump = true;
     squash = 0.45;
     jumpSound();
+  } else if (jumpBuffer === 0) {
+    jumpBufferTouch = false;
   }
 
   player.vel.y += GRAVITY * dt;
@@ -3292,10 +3338,14 @@ function updateHint() {
       : floor && floor.blink && floor.warn
         ? t("hint.poof")
         : floor && floor.id === "start" && !didJump
-          ? t("hint.jump")
+          ? t(touchPadOn() ? "hint.tap" : "hint.jump")
           : "";
   hintEl.hidden = !text;
   hintEl.textContent = text;
+}
+
+function touchPadOn() {
+  return window.matchMedia("(pointer: coarse), (max-width: 800px)").matches;
 }
 
 function look(dt) {
@@ -3440,6 +3490,8 @@ function openGate(id) {
   gateId = id;
   state = "gate";
   jumpEdge = false;
+  jumpFromTouch = false;
+  jumpBufferTouch = false;
   player.vel.set(0, 0, 0);
   gateArt.className = `poster ${def.id}`;
   gateTitle.textContent = t(`world.${def.id}`);
@@ -3479,6 +3531,8 @@ function fillBoard() {
 function openBoardCard() {
   state = "gate";
   jumpEdge = false;
+  jumpFromTouch = false;
+  jumpBufferTouch = false;
   player.vel.set(0, 0, 0);
   fillBoard();
   boardEl.hidden = false;
@@ -3599,7 +3653,10 @@ window.addEventListener("keydown", (e) => {
   if (e.repeat) return;
   keys.add(e.key.toLowerCase());
   if (e.key.toLowerCase() === "b") startDance();
-  if (e.code === "Space" && state !== "gate") jumpEdge = true;
+  if (e.code === "Space" && state !== "gate") {
+    jumpEdge = true;
+    jumpFromTouch = false;
+  }
   if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(e.key)) e.preventDefault();
   if (e.code === "Space" && (state === "home" || state === "dress" || state === "shop")) e.preventDefault();
 });
@@ -3612,24 +3669,92 @@ window.addEventListener("keydown", () => {
   userGesture = true;
 });
 
+const touchPointers = new Map();
+const touchFingers = new Map();
+function syncTouch() {
+  touch.left = false;
+  touch.right = false;
+  touch.forward = false;
+  touch.back = false;
+  for (const name of touchPointers.values()) touch[name] = true;
+  for (const names of touchFingers.values()) {
+    for (const name of names) touch[name] = true;
+  }
+}
+function holdsAt(x, y) {
+  const slop = 12;
+  const names = [];
+  for (const btn of document.querySelectorAll("#touch [data-hold]")) {
+    const r = btn.getBoundingClientRect();
+    if (x >= r.left - slop && x <= r.right + slop && y >= r.top - slop && y <= r.bottom + slop) names.push(btn.dataset.hold);
+  }
+  return names;
+}
 document.querySelectorAll("#touch [data-hold]").forEach((btn) => {
   const name = btn.dataset.hold;
-  const down = (e) => {
-    touch[name] = true;
-    btn.setPointerCapture(e.pointerId);
+  const block = (e) => e.preventDefault();
+  btn.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "touch") return;
+    touchPointers.set(e.pointerId, name);
+    syncTouch();
     e.preventDefault();
-  };
-  const up = () => {
-    touch[name] = false;
-  };
-  btn.addEventListener("pointerdown", down);
-  btn.addEventListener("pointerup", up);
-  btn.addEventListener("pointercancel", up);
+  });
+  btn.addEventListener("selectstart", block);
+  btn.addEventListener("contextmenu", block);
+  btn.addEventListener("dragstart", block);
 });
-document.querySelector("#jump").addEventListener("pointerdown", (e) => {
+window.addEventListener("pointerup", (e) => {
+  if (e.pointerType === "touch" || !touchPointers.has(e.pointerId)) return;
+  touchPointers.delete(e.pointerId);
+  syncTouch();
+});
+window.addEventListener("pointercancel", (e) => {
+  if (e.pointerType === "touch" || !touchPointers.has(e.pointerId)) return;
+  touchPointers.delete(e.pointerId);
+  syncTouch();
+});
+const jumpBtn = document.querySelector("#jump");
+const blockJump = (e) => e.preventDefault();
+const jumpedFingers = new Set();
+function onPadTouch(e) {
+  const pad = document.querySelector("#touch").getBoundingClientRect();
+  const jr = jumpBtn.getBoundingClientRect();
+  let onPad = false;
+  for (const t of e.changedTouches) {
+    if (t.clientX >= pad.left && t.clientX <= pad.right && t.clientY >= pad.top && t.clientY <= pad.bottom) onPad = true;
+  }
+  touchFingers.clear();
+  for (const t of e.touches) {
+    const names = holdsAt(t.clientX, t.clientY);
+    if (names.length) touchFingers.set(t.identifier, names);
+    const onJump = t.clientX >= jr.left && t.clientX <= jr.right && t.clientY >= jr.top && t.clientY <= jr.bottom;
+    if (e.type === "touchstart" && onJump && !jumpedFingers.has(t.identifier)) {
+      jumpedFingers.add(t.identifier);
+      jumpEdge = true;
+      jumpFromTouch = true;
+    }
+  }
+  if (e.type === "touchend" || e.type === "touchcancel") {
+    for (const t of e.changedTouches) jumpedFingers.delete(t.identifier);
+  }
+  syncTouch();
+  if (onPad) e.preventDefault();
+}
+window.addEventListener("touchstart", onPadTouch, { capture: true, passive: false });
+window.addEventListener("touchmove", onPadTouch, { capture: true, passive: false });
+window.addEventListener("touchend", onPadTouch, { capture: true, passive: false });
+window.addEventListener("touchcancel", onPadTouch, { capture: true, passive: false });
+jumpBtn.addEventListener("pointerdown", (e) => {
+  if (e.pointerType === "touch") return;
   jumpEdge = true;
+  jumpFromTouch = true;
   e.preventDefault();
 });
+jumpBtn.addEventListener("pointerup", () => jumpBtn.blur());
+jumpBtn.addEventListener("pointercancel", () => jumpBtn.blur());
+jumpBtn.addEventListener("selectstart", blockJump);
+jumpBtn.addEventListener("contextmenu", blockJump);
+jumpBtn.addEventListener("dragstart", blockJump);
 
 window.addEventListener("resize", () => {
   camera.clearViewOffset();
